@@ -1,500 +1,643 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th" data-theme="light" data-font="medium">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CKY APEX — Forma Execution Confirmation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Gloock&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- ── SEO ── -->
+<title>Forma Corporations — Engineering Intelligence for Everyone</title>
+<meta name="description" content="วิศวกรรม + AI สำหรับทุกคน ตรวจสอบ วิเคราะห์ ส่งมอบ — TORUK · FCIP · INSPECT · Advisory"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://formacorps.com"/>
+
+<!-- ── OG / SOCIAL ── -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://formacorps.com"/>
+<meta property="og:title" content="Forma Corporations — We sell certainty."/>
+<meta property="og:description" content="วิศวกรรม + AI สำหรับทุกคน ทุกชนชั้น ทุกขนาดโครงการ · ใบอนุญาต ภย 59410 · PMP · LEED AP"/>
+<meta property="og:image" content="https://formacorps.com/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="th_TH"/>
+<meta property="og:site_name" content="Forma Corporations"/>
+
+<!-- LINE share uses og: tags above — no extra meta needed -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Forma Corporations — We sell certainty."/>
+<meta name="twitter:description" content="วิศวกรรม + AI สำหรับทุกคน · TORUK · FCIP · INSPECT"/>
+<meta name="twitter:image" content="https://formacorps.com/og-image.png"/>
+
+<!-- ── FAVICON — SVG inline (zero HTTP request) ── -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B2D8E' rx='6'/%3E%3Ccircle cx='10' cy='16' r='2.5' fill='%23E8192C'/%3E%3Ctext x='15' y='21' font-family='Georgia,serif' font-size='14' font-weight='400' fill='white'%3EF%3C/text%3E%3C/svg%3E"/>
+<link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B2D8E' rx='6'/%3E%3Ccircle cx='10' cy='16' r='2.5' fill='%23E8192C'/%3E%3Ctext x='15' y='21' font-family='Georgia,serif' font-size='14' fill='white'%3EF%3C/text%3E%3C/svg%3E"/>
+
+<!-- ── FONTS ── -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Thai:wght@300;400&display=swap" rel="stylesheet"/>
+
 <style>
-:root{--navy:#2B2D8E;--red:#E8192C;--bg:#FAFAF8;--surf:#fff;--bdr:#E8E6E0;--t1:#09090F;--t2:#5A5870;--t3:#9A98AA;--fs:14px}
-[data-theme=dark]{--bg:#0C0C14;--surf:#14141F;--bdr:#2A2840;--t1:#F0EFF8;--t2:#8A88A0;--t3:#4A4860}
-[data-fs=sm]{--fs:12px}[data-fs=md]{--fs:14px}[data-fs=lg]{--fs:16px}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',system-ui,sans-serif;font-size:var(--fs);background:var(--bg);color:var(--t1);line-height:1.5}
-/* NAV */
-nav{background:var(--navy);padding:11px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:100}
-.nlogo{width:30px;height:30px;background:rgba(255,255,255,.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Gloock',serif;font-size:13px;color:#fff}
-.nbrand{display:flex;align-items:center;gap:9px}
-.nn{font-size:13px;font-weight:500;color:#fff;opacity:.9}
-.nt{font-size:10px;color:rgba(255,255,255,.45);margin-top:1px}
-.nav-links{display:flex;gap:16px}
-.nav-links a{font-size:11px;color:rgba(255,255,255,.6);text-decoration:none}
-.nav-links a:hover{color:#fff}
-.nctrls{display:flex;gap:5px}
-.ncb{padding:3px 8px;border:1px solid rgba(255,255,255,.22);border-radius:5px;background:transparent;color:#fff;font-size:11px;cursor:pointer;font-family:inherit}
-.ncb:hover{background:rgba(255,255,255,.1)}
-/* HERO */
-.hero{padding:56px 24px 44px;max-width:1040px;margin:0 auto;border-bottom:1px solid var(--bdr)}
-.eyebrow{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--bdr);border-radius:20px;padding:4px 13px;font-size:11px;color:var(--t2);margin-bottom:18px;background:var(--surf)}
-.dot-g{width:6px;height:6px;border-radius:50%;background:#1D9E75}
-.h1{font-family:'Gloock',serif;font-size:clamp(34px,5vw,58px);line-height:1.08;font-weight:400;margin-bottom:10px}
-.h1 em{color:var(--red);font-style:normal}
-.hero-p{font-size:14px;color:var(--t2);max-width:500px;line-height:1.7;margin-bottom:32px}
-/* CONFIRM STRIP */
-.cstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:0}
-@media(max-width:620px){.cstrip{grid-template-columns:repeat(2,1fr)}}
-.cs{background:var(--surf);padding:16px 18px}
-.cs.nv{background:var(--navy)}
-.cs-l{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--t3);margin-bottom:4px}
-.cs.nv .cs-l{color:rgba(255,255,255,.5)}
-.cs-v{font-family:'Gloock',serif;font-size:20px;font-weight:400}
-.cs.nv .cs-v{color:#fff}
-.cs-s{font-size:10px;color:var(--t3);margin-top:2px}
-.cs.nv .cs-s{color:rgba(255,255,255,.45)}
-/* SECTION */
-.sec{padding:44px 24px;max-width:1040px;margin:0 auto;border-bottom:1px solid var(--bdr)}
-.ey{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);margin-bottom:5px}
-.sh{font-family:'Gloock',serif;font-size:clamp(20px,3vw,28px);font-weight:400;margin-bottom:5px}
-.sp{font-size:13px;color:var(--t2);max-width:500px;line-height:1.65;margin-bottom:22px}
-/* GRID 3/2 */
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-@media(max-width:640px){.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}}
-/* CARD */
-.card{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:14px 16px}
-.card-n{font-size:10px;font-weight:600;color:var(--navy);letter-spacing:.06em;margin-bottom:6px}
-.card-t{font-size:13px;font-weight:500;margin-bottom:4px}
-.card-b{font-size:11px;color:var(--t2);line-height:1.6}
-/* TABLE */
-table{width:100%;border-collapse:collapse}
-th{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);padding:8px 10px;text-align:left;border-bottom:1px solid var(--bdr)}
-td{padding:8px 10px;border-bottom:1px solid var(--bdr);font-size:12px}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:rgba(43,45,142,.02)}
-.nr{text-align:right;font-variant-numeric:tabular-nums}
-tfoot td{font-weight:600;border-top:1px solid var(--bdr);background:var(--surf)}
-.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600}
-.bn{background:#EEEDFE;color:#3C3489}
-.bg2{background:#EAF3DE;color:#27500A}
-.br{background:#FCEBEB;color:#791F1F}
-.bam{background:#FAEEDA;color:#633806}
-.bi{background:#E6F1FB;color:#0C447C}
-/* LABEL */
-.sl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin:20px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--bdr)}
-/* GANTT */
-.gantt{border:1px solid var(--bdr);border-radius:10px;overflow:hidden;margin-bottom:10px}
-.gh{display:grid;grid-template-columns:150px 1fr;border-bottom:1px solid var(--bdr);background:var(--surf)}
-.gh-l{padding:7px 11px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t3)}
-.gh-r{display:grid;grid-template-columns:repeat(10,1fr);border-left:1px solid var(--bdr)}
-.gh-m{font-size:10px;font-weight:600;text-align:center;color:var(--t3);padding:7px 2px;border-right:1px solid var(--bdr)}
-.gh-m:last-child{border-right:none}
-.gr{display:grid;grid-template-columns:150px 1fr;border-bottom:1px solid var(--bdr)}
-.gr:last-child{border-bottom:none}
-.gr-l{padding:9px 11px;font-size:11px;font-weight:500;display:flex;align-items:center;border-right:1px solid var(--bdr);background:var(--surf)}
-.gr-r{position:relative;height:36px}
-.gbar{position:absolute;height:20px;top:8px;border-radius:4px;display:flex;align-items:center;padding:0 5px;font-size:9px;font-weight:600;color:#fff;overflow:hidden;white-space:nowrap}
-.gleg{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--t2);margin-bottom:22px}
-.gdot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:middle}
-/* SCURVE */
-.scc{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:14px;margin-bottom:22px}
-.sch{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
-.sct{font-size:12px;font-weight:500}
-.scleg{display:flex;gap:14px;font-size:11px;color:var(--t2)}
-/* RESOURCE */
-.res-wrap{overflow-x:auto;margin-bottom:16px}
-.rt th{padding:6px 7px;font-size:10px;text-align:center}
-.rt th:first-child{text-align:left}
-.rt td{padding:6px 7px;font-size:11px;text-align:center}
-.rt td:first-child{text-align:left;font-weight:500}
-.rt .pk{color:#A32D2D;font-weight:700}
-.rt .lo{color:var(--t3)}
-/* RISK */
-.risk-row{display:grid;grid-template-columns:28px 1fr 80px 80px 100px;gap:8px;padding:9px 12px;border-bottom:1px solid var(--bdr);font-size:12px;align-items:start}
-.risk-row:last-child{border-bottom:none}
-.risk-hdr{display:grid;grid-template-columns:28px 1fr 80px 80px 100px;gap:8px;padding:7px 12px;background:var(--bg);border-bottom:1px solid var(--bdr);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t3)}
-.risk-wrap{border:1px solid var(--bdr);border-radius:10px;overflow:hidden;margin-bottom:16px}
-/* ORG */
-.org-wrap{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:18px;overflow-x:auto;margin-bottom:0}
-/* CONTACT */
-.cta{background:var(--navy);border-radius:12px;padding:28px 28px;margin:0 24px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.cta-t{font-family:'Gloock',serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:3px}
-.cta-s{font-size:12px;color:rgba(255,255,255,.55)}
-.cta-btn{padding:10px 22px;background:#E8192C;border:none;border-radius:7px;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;text-decoration:none}
-/* FOOTER */
-.ftr{text-align:center;font-size:10px;color:var(--t3);padding:16px 24px;border-top:1px solid var(--bdr)}
-/* ENG TABLE */
-.eng-spec{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;overflow:hidden;margin-bottom:14px}
-.dcr-bar-bg{background:var(--bdr);border-radius:3px;height:4px;min-width:70px;display:inline-block;vertical-align:middle}
-.dcr-bar-fill{height:100%;border-radius:3px}
-.pass{color:#27500A;font-weight:600}
-.warn{color:#633806;font-weight:600}
+/* ═══════════════════════════════════════
+   FORMA DESIGN SYSTEM v1.0
+   One System · One Platform · Eco System
+   ═══════════════════════════════════════ */
+:root {
+  /* Brand */
+  --navy:        #2B2D8E;
+  --red:         #E8192C;
+  --line-green:  #06C755;
+  --success:     #10b981;
+
+  /* Light Theme (Default — "Out of Dark, Into Light") */
+  --bg:          #FAFAF8;
+  --text:        #0C0D14;
+  --muted:       rgba(12,13,20,0.38);
+  --muted2:      rgba(12,13,20,0.20);
+  --border:      rgba(12,13,20,0.08);
+
+  /* Type Scale */
+  --f-xs:        0.68rem;
+  --f-sm:        0.80rem;
+  --f-base:      0.93rem;
+  --f-hero:      clamp(3.8rem, 9vw, 8.5rem);
+
+  /* Interaction */
+  --ease:        cubic-bezier(.22,1,.36,1);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg:          #09090F;
+  --text:        #EEECEA;
+  --muted:       rgba(238,236,234,0.36);
+  --muted2:      rgba(238,236,234,0.18);
+  --border:      rgba(238,236,234,0.07);
+}
+
+/* Font Scale */
+[data-font="small"]  { font-size: 13px; }
+[data-font="medium"] { font-size: 15px; }
+[data-font="large"]  { font-size: 18px; }
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans','Noto Sans Thai',sans-serif;
+  font-weight: 300;
+  font-size: var(--f-base);
+  line-height: 1.6;
+  transition: background 0.35s ease, color 0.35s ease;
+  cursor: default;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── GRAIN — Invisible Excellence ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ── VERTICAL ACCENT LINE ── */
+.v-line {
+  position: fixed; top: 0; right: 18%;
+  width: 1px; height: 100vh;
+  background: var(--border);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 1.2s ease 1.3s forwards;
+}
+
+/* ── CONTROLS — Top Right ── */
+.controls {
+  position: fixed;
+  top: 1.4rem; right: 1.6rem;
+  z-index: 200;
+  display: flex; gap: 0.32rem; align-items: center;
+}
+.cb {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.22rem 0.48rem;
+  font-size: var(--f-xs);
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.04em;
+  transition: color 0.2s, border-color 0.2s;
+  border-radius: 2px;
+  line-height: 1.4;
+}
+.cb:hover, .cb.on { color: var(--text); border-color: var(--muted); }
+.cs { width: 1px; height: 14px; background: var(--border); }
+
+/* ── STAGE — 3-Row Grid ── */
+.stage {
+  position: fixed; inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 1.8rem 2.4rem;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  opacity: 0; animation: rise 0.6s ease 0.1s forwards;
+}
+.logo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--f-xs);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text);
+  display: flex; align-items: center; gap: 0.45rem;
+  text-decoration: none;
+}
+.logo-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+.line-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--line-green);
+  color: #fff;
+  padding: 0.42rem 1.1rem;
+  font-size: var(--f-xs);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.line-btn:hover { opacity: 0.87; transform: translateY(-1px); }
+.line-icon { width: 14px; height: 14px; fill: #fff; flex-shrink: 0; }
+
+/* ── CENTER ── */
+.center {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 0 1.5rem;
+}
+
+/* Hero Headline */
+.hero-text {
+  font-family: 'Gloock', serif;
+  font-size: var(--f-hero);
+  font-weight: 400;
+  line-height: 0.97;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: clamp(1.4rem, 3vh, 2.4rem);
+}
+.hw {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.38em);
+  animation: wordIn 0.55s var(--ease) forwards;
+}
+.hw1 { animation-delay: 0.35s; }
+.hw2 { animation-delay: 0.52s; }
+.hw3 { animation-delay: 0.69s; color: var(--navy); }
+
+/* Subtitle */
+.sub {
+  font-size: var(--f-sm);
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.75;
+  margin-bottom: clamp(1.8rem, 3.5vh, 3rem);
+  max-width: 440px;
+  opacity: 0;
+  animation: rise 0.6s ease 0.9s forwards;
+}
+
+/* ── PLATFORMS ── */
+.platforms {
+  display: flex; align-items: center; gap: 0;
+  opacity: 0;
+  animation: rise 0.6s ease 1.05s forwards;
+  position: relative;
+}
+.plat {
+  position: relative;
+  display: flex; align-items: center;
+}
+
+/* FIX G4: Last platform tooltip aligns right */
+.plat:last-child .plat-tip { left: auto; right: 0; }
+
+.plat-btn {
+  display: flex; align-items: center; gap: 0.65rem;
+  padding: 0.5rem 1.3rem 0.5rem 0;
+  font-size: var(--f-xs);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none; border: none;
+  white-space: nowrap;
+}
+.plat-btn:hover { color: var(--navy); }
+.plat-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.2s, opacity 0.2s;
+}
+.plat-btn.live .plat-dot   { background: var(--success); }
+.plat-btn.soon .plat-dot   { background: var(--navy); opacity: 0.35; }
+.plat-btn:hover .plat-dot  { background: var(--navy); opacity: 1; }
+
+.plat-sep {
+  width: 1px; height: 13px;
+  background: var(--border);
+  margin-right: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ── TOOLTIP ── */
+.plat-tip {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: 0;
+  min-width: 276px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 1.2rem 1.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 8px 30px rgba(12,13,20,0.07);
+  z-index: 50;
+  border-radius: 2px;
+}
+[data-theme="dark"] .plat-tip {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+.plat-tip.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.tip-name {
+  font-size: var(--f-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.45rem;
+}
+.tip-desc {
+  font-size: var(--f-sm);
+  color: var(--muted);
+  line-height: 1.72;
+  margin-bottom: 0.7rem;
+}
+.tip-price {
+  font-size: var(--f-xs);
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+.tip-price strong { color: var(--navy); font-weight: 500; }
+.tip-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: var(--f-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.tip-link:hover { gap: 0.65rem; text-decoration: none; }
+.tip-link::after { content: '→'; }
+
+/* ── BOTTOM BAR ── */
+.bottombar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  animation: rise 0.6s ease 1.15s forwards;
+}
+.creds {
+  display: flex; align-items: center; gap: 1.3rem;
+  flex-wrap: wrap;
+}
+.cred {
+  font-size: var(--f-xs);
+  color: var(--muted2);
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+.cred-sep {
+  width: 1px; height: 10px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.copy {
+  font-size: var(--f-xs);
+  color: var(--muted2);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes wordIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ── MOBILE — FIX G5: Controls + LINE spacing ── */
+@media (max-width: 640px) {
+  html, body { overflow: auto; }
+
+  .stage {
+    position: relative;
+    min-height: 100dvh;
+    padding: 1.3rem 1.4rem 1.6rem;
+  }
+  .center { padding: 2.5rem 0 1.5rem; }
+  .v-line { display: none; }
+
+  /* FIX G5: Controls tighter on mobile — away from LINE btn */
+  .controls {
+    top: 0.9rem;
+    right: 1.4rem;
+    gap: 0.25rem;
+  }
+  /* LINE btn moves left of controls area */
+  .line-btn {
+    margin-right: 5.5rem; /* pushes away from controls */
+  }
+
+  .creds { gap: 0.75rem; }
+  .copy  { display: none; }
+
+  /* FIX G4 mobile: all tips align left, clamp width */
+  .plat-tip,
+  .plat:last-child .plat-tip {
+    left: 0; right: auto;
+    min-width: 240px;
+    max-width: calc(100vw - 2.8rem);
+  }
+
+  .platforms { flex-wrap: wrap; gap: 0.2rem 0; }
+}
+
+@media (max-width: 380px) {
+  .plat-sep { margin-right: 0.8rem; }
+  .plat-btn { padding-right: 0.9rem; letter-spacing: 0.1em; }
+}
 </style>
 </head>
-<body data-theme="light" data-fs="md">
+<body>
 
-<nav>
-  <div class="nbrand">
-    <div class="nlogo">FC</div>
-    <div><div class="nn">Forma Corporations</div><div class="nt">CKY APEX · Execution Confirmation · April 2026</div></div>
-  </div>
-  <div class="nav-links">
-    <a href="#engineering">Engineering</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#resource">Resource</a>
-    <a href="#risk">Risk</a>
-    <a href="#team">Team</a>
-  </div>
-  <div class="nctrls">
-    <button class="ncb" onclick="setTheme()">◐</button>
-    <button class="ncb" onclick="setFs('sm')">S</button>
-    <button class="ncb" onclick="setFs('md')">M</button>
-    <button class="ncb" onclick="setFs('lg')">L</button>
-    <button class="ncb" onclick="window.print()">⎙</button>
-  </div>
-</nav>
+<!-- Structural accent -->
+<div class="v-line" aria-hidden="true"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="eyebrow"><span class="dot-g"></span>Confirmed · Nong Yai Industrial Estate · Chonburi EEC</div>
-  <h1 class="h1">Forma Corporations<br>is <em>ready to build.</em></h1>
-  <p class="hero-p">Execution confirmation — not a proposal. Licensed. Engineered. Planned. 7 RC buildings. 560 rooms. 10 months.</p>
-  <div class="cstrip">
-    <div class="cs nv"><div class="cs-l">Price / Building</div><div class="cs-v">฿9,850,000</div><div class="cs-s">confirmed · frozen</div></div>
-    <div class="cs nv"><div class="cs-l">Total Contract × 7</div><div class="cs-v">฿68,950,000</div><div class="cs-s">sub-contract · excl. VAT</div></div>
-    <div class="cs"><div class="cs-l">Delivery</div><div class="cs-v">10 Months</div><div class="cs-s">NTP to full handover</div></div>
-    <div class="cs"><div class="cs-l">DLP Warranty</div><div class="cs-v">5 Years</div><div class="cs-s">post-handover</div></div>
-  </div>
-</section>
-
-<!-- ENGINEERING -->
-<section class="sec" id="engineering">
-  <div class="ey">Structural Engineering</div>
-  <h2 class="sh">SEDR Rev 1.1 — Peer Reviewed</h2>
-  <p class="sp">SEDR FEC-2026-CKY-001. 25 DCR checks PASS. ACI 318-19 / วสท.1006-64. 21 peer-review findings resolved. EOR: Weerapong Wasukaratana · PE ภย 59410.</p>
-
-  <div class="sl">Structural System</div>
-  <div class="g3" style="margin-bottom:16px">
-    <div class="card"><div class="card-n">Frame</div><div class="card-t">RC Cast-In-Place</div><div class="card-b">C25 concrete / SD40 rebar. Column-beam moment frame. 4 floors above grade.</div></div>
-    <div class="card"><div class="card-n">Floor</div><div class="card-t">Steel Deck MD-75</div><div class="card-b">MD-75 composite deck + 80mm C25 topping. Faster than RC slab. EEC-standard.</div></div>
-    <div class="card"><div class="card-n">Roof</div><div class="card-t">Galvalume AZ150</div><div class="card-b">Deep-rib Galvalume on C150×65 purlins. Lightweight. Low maintenance. 25-yr warranty.</div></div>
-  </div>
-
-  <div class="sl">Member Design Check — DCR Summary</div>
-  <div class="eng-spec">
-    <table>
-      <thead><tr><th>Member</th><th>Size</th><th>Grade</th><th>Key Parameter</th><th class="nr">Demand</th><th class="nr">Capacity</th><th class="nr">DCR</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Column (typ.)</td><td>300×300mm</td><td>C25/SD40</td><td>8-D20 bars · Axial</td><td class="nr">810 kN</td><td class="nr">1,509 kN</td><td class="nr"><span class="pass">0.54</span></td><td><span class="badge bg2">PASS</span></td></tr>
-        <tr><td>Beam (main)</td><td>250×500mm</td><td>C25/SD40</td><td>Flexure · wu=8.66kN/m²</td><td class="nr">150.8 kN·m</td><td class="nr">182 kN·m</td><td class="nr"><span class="warn">0.83</span></td><td><span class="badge bg2">PASS</span></td></tr>
-        <tr><td>Beam shear</td><td>250×500mm</td><td>C25/SD40</td><td>Vu design</td><td class="nr">95.1 kN</td><td class="nr">132 kN</td><td class="nr"><span class="pass">0.72</span></td><td><span class="badge bg2">PASS</span></td></tr>
-        <tr><td>Slab composite</td><td>MD-75+80mm</td><td>C25</td><td>Deck + topping</td><td class="nr">5.40 kN/m²</td><td class="nr">8.20 kN/m²</td><td class="nr"><span class="pass">0.66</span></td><td><span class="badge bg2">PASS</span></td></tr>
-        <tr><td>Pile cap</td><td>PC-4 1,650×1,650×600</td><td>C25/SD40</td><td>Punching + flexure</td><td class="nr">1,620 kN</td><td class="nr">2,800 kN</td><td class="nr"><span class="pass">0.58</span></td><td><span class="badge bg2">PASS</span></td></tr>
-        <tr><td>Roof purlin</td><td>C150×65</td><td>G550</td><td>Gravity load</td><td class="nr">1.8 kN/m</td><td class="nr">3.1 kN/m</td><td class="nr"><span class="pass">0.58</span></td><td><span class="badge bg2">PASS</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="sl">Fire Rating & Code Compliance</div>
-  <div class="g2">
-    <div class="card"><div class="card-n">Fire Protection</div><div class="card-t">Column 2hr ✓ · Beam 1.5hr ✓</div><div class="card-b">Cover 40mm column / 30mm beam. ACI 318-19 Table 26.12. Worker dormitory occupancy compliant.</div></div>
-    <div class="card"><div class="card-n">Design Standards</div><div class="card-t">ACI 318-19 · วสท.1006-64 · ASCE 7-22</div><div class="card-b">SEDR Doc: FEC-SEDR-2026-CKY-001. 21 peer-review findings resolved. EOR stamp ready.</div></div>
-  </div>
-
-  <div class="sl" style="margin-top:18px">Foundation</div>
-  <div class="g3">
-    <div class="card"><div class="card-n">Pile Type</div><div class="card-t">PC Spun Pile — Qa=400kN</div><div class="card-b">Precast concrete. Contractor supply by arrangement. Pile cut to design level.</div></div>
-    <div class="card"><div class="card-n">Pile Cap</div><div class="card-t">PC-4 · 1,650×1,650×600mm</div><div class="card-b">4-pile group. Punching check passed. Flexural reinforcement confirmed at SD40 D16.</div></div>
-    <div class="card"><div class="card-n">Tie Beam</div><div class="card-t">250×400mm · C25/SD40</div><div class="card-b">Connects all pile caps. Lateral stability confirmed. Ground beam full perimeter.</div></div>
-  </div>
-</section>
-
-<!-- SCHEDULE + EVM -->
-<section class="sec" id="schedule">
-  <div class="ey">Execution Schedule</div>
-  <h2 class="sh">10 Months · 3 Crews · 7 Buildings</h2>
-  <p class="sp">Staggered 2-week mobilization. Critical path confirmed. EVM tracking from NTP Day 1.</p>
-
-  <div class="sl">Master Gantt</div>
-  <div class="gantt" id="gantt-wrap"></div>
-  <div class="gleg" id="gleg"></div>
-
-  <div class="sl">S-Curve — Planned Value · BAC ฿68.95M</div>
-  <div class="scc">
-    <div class="sch">
-      <span class="sct">Cumulative Planned Value — 10 Months</span>
-      <div class="scleg">
-        <span><span style="display:inline-block;width:16px;height:2px;background:#2B2D8E;vertical-align:middle;border-radius:2px;margin-right:4px"></span>PV</span>
-        <span><span style="display:inline-block;width:16px;height:0;border-top:2px dashed #E8192C;vertical-align:middle;margin-right:4px"></span>฿68.95M</span>
-      </div>
-    </div>
-    <svg id="scurve" viewBox="0 0 640 230" style="width:100%;height:auto" role="img" aria-label="S-Curve">
-      <g id="sg"></g><g id="sxl"></g><g id="syl"></g>
-      <path id="sfill" fill="rgba(43,45,142,0.07)"/>
-      <line x1="58" y1="24" x2="580" y2="24" stroke="#E8192C" stroke-width="1.2" stroke-dasharray="5,4"/>
-      <text x="584" y="28" font-size="8" fill="#E8192C" font-family="DM Sans,sans-serif">฿68.95M</text>
-      <path id="sline" fill="none" stroke="#2B2D8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <g id="sdots"></g>
-      <line x1="58" y1="208" x2="580" y2="208" stroke="#E8E6E0" stroke-width="1"/>
-      <line x1="58" y1="24" x2="58" y2="208" stroke="#E8E6E0" stroke-width="1"/>
-    </svg>
-  </div>
-
-  <div class="sl">Payment Milestones — ฿68,950,000</div>
-  <table>
-    <thead><tr><th style="width:60px">Stage</th><th>Milestone Event</th><th style="width:76px">Month</th><th class="nr" style="width:140px">Payment (THB)</th><th class="nr" style="width:140px">Cumulative</th><th style="width:40px">%</th></tr></thead>
-    <tbody id="msbody"></tbody>
-    <tfoot><tr><td colspan="3">Total</td><td class="nr">—</td><td class="nr">฿68,950,000</td><td>100%</td></tr></tfoot>
-  </table>
-</section>
-
-<!-- RESOURCE LOADING -->
-<section class="sec" id="resource">
-  <div class="ey">Resource Planning</div>
-  <h2 class="sh">11 Trades · 10 Months · Peak 68 Workers</h2>
-  <p class="sp">Per-building resource allocation. Month 5 peak. 3 crews distributed across 7 buildings simultaneously.</p>
-
-  <div class="sl">Manpower Loading — Workers by Trade</div>
-  <div class="res-wrap">
-    <table class="rt">
-      <thead><tr><th style="text-align:left;min-width:140px">Trade</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th>M7</th><th>M8</th><th>M9</th><th>M10</th><th style="color:var(--navy)">Peak</th></tr></thead>
-      <tbody id="resbody"></tbody>
-      <tfoot><tr id="resfoot"></tr></tfoot>
-    </table>
-  </div>
-
-  <div class="sl">Material Lead Times — Critical Items</div>
-  <div class="g3">
-    <div class="card"><div class="card-n">Steel Deck MD-75</div><div class="card-t">4-week lead · Order at NTP</div><div class="card-b">Factory direct. Lock price before contract. EEC regional supplier confirmed.</div></div>
-    <div class="card"><div class="card-n">PC Pile Supply</div><div class="card-t">Available · China sub or local</div><div class="card-b">Qa=400kN confirmed. PDA test data required from CKY's China contractor before pour.</div></div>
-    <div class="card"><div class="card-n">Sanitary Package</div><div class="card-t">560-unit bulk order</div><div class="card-b">Single supplier deal. Delivery Month 4 start. Spec locked at SD40 standard.</div></div>
-  </div>
-</section>
-
-<!-- RISK REGISTER -->
-<section class="sec" id="risk">
-  <div class="ey">Risk Register</div>
-  <h2 class="sh">Identified · Quantified · Mitigated</h2>
-  <p class="sp">Active risk register. Critical risks assigned to owner with mitigation confirmed.</p>
-
-  <div class="risk-wrap">
-    <div class="risk-hdr"><span>#</span><span>Risk</span><span>Likelihood</span><span>Impact</span><span>Owner</span></div>
-    <div id="riskbody"></div>
-  </div>
-
-  <div class="sl">Non-Negotiable Safeguards</div>
-  <div class="g2">
-    <div class="card"><div class="card-n">Price Escalation Clause</div><div class="card-t">Steel / Concrete / Diesel ≥5% → VO automatic</div><div class="card-b">Macro risk pre-absorbed. Protects both Forma and CKY from EEC material volatility.</div></div>
-    <div class="card"><div class="card-n">LD Cap ฿5,000/day/building</div><div class="card-t">Max exposure ฿35,000/day total</div><div class="card-b">LD passed from CKY is capped. Force majeure exclusions apply. Back-to-Back 7 days.</div></div>
-  </div>
-</section>
-
-<!-- SCOPE / QMP -->
-<section class="sec">
-  <div class="ey">Scope + Quality</div>
-  <h2 class="sh">Full Scope · ISO QMP · DuPont HSE</h2>
-  <p class="sp">Pile Cutting to Roof Handover. ITP per zone. DuPont IIF on-site from Day 1.</p>
-
-  <div class="sl">Work Packages — A to I</div>
-  <table style="margin-bottom:16px">
-    <thead><tr><th>Pkg</th><th>Description</th><th>Spec</th><th>Coverage</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge bn">A</span></td><td>Preliminaries + Site Setup</td><td>Mobilization, temp facilities, hoarding</td><td>Full site</td></tr>
-      <tr><td><span class="badge bn">B</span></td><td>Foundation — Pile Cap + Tie Beam</td><td>PC Pile Qa=400kN · C25 · PC-4</td><td>7 Buildings</td></tr>
-      <tr><td><span class="badge bn">C</span></td><td>RC Structural Frame</td><td>ACI 318-19 · C25/SD40 · Col 300×300 · Bm 250×500</td><td>7 Buildings</td></tr>
-      <tr><td><span class="badge bn">D</span></td><td>Steel Deck + Roof</td><td>MD-75 + 80mm topping · C150×65 purlin · Galvalume AZ150</td><td>7 Buildings</td></tr>
-      <tr><td><span class="badge bn">E</span></td><td>Architecture Finish</td><td>AAC Block · Plaster · Tile · Paint</td><td>560 Rooms</td></tr>
-      <tr><td><span class="badge bn">F</span></td><td>Doors + Windows + Glazing</td><td>Aluminum frame · safety glass</td><td>560 Rooms</td></tr>
-      <tr><td><span class="badge bn">G</span></td><td>Sanitary + Plumbing</td><td>Complete wet area · 560-unit package</td><td>560 Rooms</td></tr>
-      <tr><td><span class="badge bn">H</span></td><td>Electrical + MEP</td><td>LV distribution · lighting · data · HVAC</td><td>7 Buildings</td></tr>
-      <tr><td><span class="badge bg2">I</span></td><td>External Works + Handover</td><td>Drainage · road · landscape · DLP 5Y</td><td>Full site</td></tr>
-    </tbody>
-  </table>
-
-  <div class="g3">
-    <div class="card"><div class="card-n">QMP — TORUK</div><div class="card-t">Zone-by-zone ITP · Daily photo log</div><div class="card-b">Every floor, every building. Non-conformance tracked to closure. CKY dashboard access Day 1.</div></div>
-    <div class="card"><div class="card-n">HSE — DuPont IIF</div><div class="card-t">Zero LTI target · Daily toolbox</div><div class="card-b">Incident-and-Injury-Free framework. Site induction mandatory. ISO 45001 aligned.</div></div>
-    <div class="card"><div class="card-n">Reporting</div><div class="card-t">Weekly EVM · Monthly S-Curve</div><div class="card-b">SPI + CPI tracked weekly. S-Curve updated monthly. Estate-ready reporting format.</div></div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section class="sec" id="team">
-  <div class="ey">Project Team</div>
-  <h2 class="sh">Licensed · Certified · On-site</h2>
-  <p class="sp">PE-licensed EOR. PMP-certified PM. 3 Crew Leads mobilizing NTP+14 days. Sub-contractors confirmed.</p>
-  <div class="org-wrap">
-    <svg id="orgsvg" viewBox="0 0 720 370" style="width:100%;height:auto;display:block" role="img" aria-label="Org chart">
-      <g id="orglines"></g><g id="orgboxes"></g>
-    </svg>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta">
-  <div>
-    <div class="cta-t">Forma is ready. CKY — let's confirm.</div>
-    <div class="cta-s">Weerapong Wasukaratana · PE ภย 59410 · LINE @sugar_russ · April 2026</div>
-  </div>
-  <a href="https://line.me/R/ti/p/%40sugar_russ" class="cta-btn">Confirm via LINE →</a>
+<!-- ── CONTROLS ── -->
+<div class="controls" role="toolbar" aria-label="Display settings">
+  <button class="cb" id="fs" onclick="setF('small','fs')" title="Small text">S</button>
+  <button class="cb on" id="fm" onclick="setF('medium','fm')" title="Medium text">M</button>
+  <button class="cb" id="fl" onclick="setF('large','fl')" title="Large text">L</button>
+  <div class="cs" aria-hidden="true"></div>
+  <button class="cb" id="th" onclick="toggleTheme()" title="Toggle dark/light">◐</button>
 </div>
 
-<div class="ftr">Forma Corporations Co., Ltd. &nbsp;|&nbsp; PE ภย 59410 &nbsp;|&nbsp; PMP #2874041 &nbsp;|&nbsp; LEED AP BD+C #11435934 &nbsp;|&nbsp; Corporate ๓๕๐๒๖๗ &nbsp;|&nbsp; April 2026 &nbsp;|&nbsp; Confidential — CKY Group</div>
+<!-- ── STAGE ── -->
+<div class="stage">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <a href="/" class="logo" aria-label="Forma Corporations">
+      <span class="logo-dot" aria-hidden="true"></span>
+      Forma Corporations
+    </a>
+    <a href="https://line.me/R/ti/p/@sugar_russ"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="line-btn"
+       aria-label="Contact via LINE @sugar_russ">
+      <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.03 2 11c0 3.27 1.88 6.14 4.72 7.9.19.12.26.34.18.54l-.57 2.1c-.06.22.16.42.37.32l3.2-1.26c.15-.06.31-.05.46.02.86.3 1.78.48 2.64.48 5.52 0 10-4.03 10-9S17.52 2 12 2z"/>
+      </svg>
+      @sugar_russ
+    </a>
+  </header>
+
+  <!-- CENTER -->
+  <main class="center">
+    <h1 class="hero-text" aria-label="We sell certainty.">
+      <span class="hw hw1">We&nbsp;</span><span class="hw hw2">sell&nbsp;</span><br aria-hidden="true"/>
+      <span class="hw hw3">certainty.</span>
+    </h1>
+
+    <p class="sub">
+      วิศวกรรม + AI &nbsp;—&nbsp; ตรวจสอบ วิเคราะห์ ส่งมอบ<br/>
+      สำหรับทุกคน ทุกชนชั้น ทุกขนาดโครงการ
+    </p>
+
+    <!-- PLATFORMS — hover/tap for detail -->
+    <nav class="platforms" aria-label="Forma Platforms">
+
+      <!-- TORUK -->
+      <div class="plat" id="p1">
+        <button class="plat-btn live"
+          onmouseenter="show('p1')" onmouseleave="hide('p1')"
+          onclick="tap('p1')"
+          aria-expanded="false" aria-controls="tip-p1">
+          <span class="plat-dot" aria-hidden="true"></span>TORUK
+        </button>
+        <div class="plat-tip" id="tip-p1" role="tooltip">
+          <div class="tip-name">TORUK — Field Intelligence</div>
+          <p class="tip-desc">ระบบ Field Ops สำหรับทีมวิศวกรภาคสนาม ทำ Inspection Report บนมือถือ ส่งรายงาน PDF อัตโนมัติ จัดการ Site หลายแห่งพร้อมกัน</p>
+          <div class="tip-price">เริ่มต้น <strong>ฟรี</strong></div>
+          <a class="tip-link" href="https://toruk.formacorps.com"
+             target="_blank" rel="noopener noreferrer">เปิด Platform</a>
+        </div>
+      </div>
+
+      <div class="plat-sep" aria-hidden="true"></div>
+
+      <!-- FCIP -->
+      <div class="plat" id="p2">
+        <button class="plat-btn live"
+          onmouseenter="show('p2')" onmouseleave="hide('p2')"
+          onclick="tap('p2')"
+          aria-expanded="false" aria-controls="tip-p2">
+          <span class="plat-dot" aria-hidden="true"></span>FCIP
+        </button>
+        <div class="plat-tip" id="tip-p2" role="tooltip">
+          <div class="tip-name">FCIP — Engineering Calculator</div>
+          <p class="tip-desc">คำนวณโครงสร้างตาม ACI · EC2 · AISC · วสท. ได้รายงาน PDF มาตรฐาน Sign วิศวกรพร้อมใช้</p>
+          <div class="tip-price">เริ่มต้น <strong>฿490/เดือน</strong></div>
+          <a class="tip-link" href="https://fcip-platform.vercel.app"
+             target="_blank" rel="noopener noreferrer">เปิด Platform</a>
+        </div>
+      </div>
+
+      <div class="plat-sep" aria-hidden="true"></div>
+
+      <!-- INSPECT -->
+      <div class="plat" id="p3">
+        <button class="plat-btn soon"
+          onmouseenter="show('p3')" onmouseleave="hide('p3')"
+          onclick="tap('p3')"
+          aria-expanded="false" aria-controls="tip-p3">
+          <span class="plat-dot" aria-hidden="true"></span>INSPECT
+        </button>
+        <div class="plat-tip" id="tip-p3" role="tooltip">
+          <div class="tip-name">INSPECT — AI Building Report</div>
+          <p class="tip-desc">Upload ภาพอาคาร — AI วิเคราะห์ความเสี่ยง ได้รายงานวิศวกรรมภายใน 24 ชั่วโมง ไม่ต้องเป็นวิศวกรก็ใช้ได้</p>
+          <div class="tip-price">เริ่มต้น <strong>฿499/Report</strong> — Launching Soon</div>
+          <a class="tip-link" href="https://line.me/R/ti/p/@sugar_russ"
+             target="_blank" rel="noopener noreferrer">แจ้งความสนใจ</a>
+        </div>
+      </div>
+
+      <div class="plat-sep" aria-hidden="true"></div>
+
+      <!-- ADVISORY — FIX G4: tooltip right-aligned via CSS .plat:last-child -->
+      <div class="plat" id="p4">
+        <button class="plat-btn live"
+          onmouseenter="show('p4')" onmouseleave="hide('p4')"
+          onclick="tap('p4')"
+          aria-expanded="false" aria-controls="tip-p4">
+          <span class="plat-dot" aria-hidden="true"></span>Advisory
+        </button>
+        <div class="plat-tip" id="tip-p4" role="tooltip">
+          <div class="tip-name">Engineering Advisory</div>
+          <p class="tip-desc">ตรวจสอบอาคาร · ซ่อมแซมโครงสร้าง · Civil Works · Maintenance บริหารโดย PMP + วิศวกรใบอนุญาต ภย 59410</p>
+          <div class="tip-price">ติดต่อเพื่อรับราคา</div>
+          <a class="tip-link" href="https://line.me/R/ti/p/@sugar_russ"
+             target="_blank" rel="noopener noreferrer">ติดต่อเรา</a>
+        </div>
+      </div>
+
+    </nav>
+  </main>
+
+  <!-- BOTTOM BAR -->
+  <footer class="bottombar">
+    <div class="creds" aria-label="Credentials">
+      <span class="cred">ภย 59410</span>
+      <div class="cred-sep" aria-hidden="true"></div>
+      <span class="cred">PMP® #2874041</span>
+      <div class="cred-sep" aria-hidden="true"></div>
+      <span class="cred">LEED AP BD+C</span>
+      <div class="cred-sep" aria-hidden="true"></div>
+      <span class="cred">9 ปี · 0 Failures</span>
+    </div>
+    <div class="copy">© 2016–2026 Forma Corporations Co., Ltd.</div>
+  </footer>
+
+</div><!-- /stage -->
 
 <script>
-function setTheme(){var b=document.body;b.setAttribute('data-theme',b.getAttribute('data-theme')==='dark'?'light':'dark');renderSC();renderOrg();}
-function setFs(s){document.body.setAttribute('data-fs',s);}
+'use strict';
 
-// GANTT
-var GD=[
-  {l:'Bldg 1–2 · Crew A',p:[{n:'Foundation',s:0,e:1.5,c:'#378ADD'},{n:'RC Frame',s:1.5,e:3.5,c:'#2B2D8E'},{n:'Deck+Roof',s:3.5,e:4.5,c:'#0F6E56'},{n:'Arch+MEP',s:4.5,e:8,c:'#BA7517'},{n:'Handover',s:8.5,e:10,c:'#1D9E75'}]},
-  {l:'Bldg 3–4 · Crew B',p:[{n:'Foundation',s:1,e:2.5,c:'#378ADD'},{n:'RC Frame',s:2.5,e:4.5,c:'#2B2D8E'},{n:'Deck+Roof',s:4.5,e:5.5,c:'#0F6E56'},{n:'Arch+MEP',s:5.5,e:9,c:'#BA7517'},{n:'Handover',s:9,e:10,c:'#1D9E75'}]},
-  {l:'Bldg 5–6 · Crew C',p:[{n:'Foundation',s:2,e:3.5,c:'#378ADD'},{n:'RC Frame',s:3.5,e:5.5,c:'#2B2D8E'},{n:'Deck+Roof',s:5.5,e:6.5,c:'#0F6E56'},{n:'Arch+MEP',s:6.5,e:9.5,c:'#BA7517'},{n:'Handover',s:9.5,e:10,c:'#1D9E75'}]},
-  {l:'Bldg 7 · Crew A/2',p:[{n:'Foundation',s:3,e:4.5,c:'#378ADD'},{n:'RC Frame',s:4.5,e:6.5,c:'#2B2D8E'},{n:'Deck+Roof',s:6.5,e:7.5,c:'#0F6E56'},{n:'Arch+MEP',s:7.5,e:9.5,c:'#BA7517'},{n:'Handover',s:9.5,e:10,c:'#1D9E75'}]},
-];
-(function(){
-  var ms=['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10'];
-  var w=document.getElementById('gantt-wrap'),h='<div class="gh"><div class="gh-l">Building / Crew</div><div class="gh-r">';
-  ms.forEach(function(m){h+='<div class="gh-m">'+m+'</div>';});h+='</div></div>';
-  GD.forEach(function(r){
-    h+='<div class="gr"><div class="gr-l">'+r.l+'</div><div class="gr-r">';
-    r.p.forEach(function(p){h+='<div class="gbar" style="left:'+(p.s/10*100).toFixed(1)+'%;width:'+((p.e-p.s)/10*100).toFixed(1)+'%;background:'+p.c+'">'+p.n+'</div>';});
-    h+='</div></div>';
-  });
-  document.getElementById('gantt-wrap').innerHTML=h;
-  var lh='';
-  [{c:'#378ADD',n:'Foundation'},{c:'#2B2D8E',n:'RC Frame'},{c:'#0F6E56',n:'Deck+Roof'},{c:'#BA7517',n:'Arch+MEP'},{c:'#1D9E75',n:'Handover'}].forEach(function(l){lh+='<span><span class="gdot" style="background:'+l.c+'"></span>'+l.n+'</span>';});
-  document.getElementById('gleg').innerHTML=lh;
-})();
-
-// MILESTONES
-var CONTRACT=68950000;
-var mlP=[.10,.30,.25,.25,.10];
-var mlEv=['Contract Signing + NTP Advance','RC Structure — Bldg 1–2 + Foundation All Buildings','Steel Deck + Roof Complete — All 7','Architecture + MEP + Sanitary Complete','Final Acceptance + Handover'];
-var mlM=['NTP Day 0','Month 3','Month 6','Month 9','Month 10'];
-(function(){
-  var tb=document.getElementById('msbody'),cum=0,h='';
-  mlP.forEach(function(p,i){
-    var a=Math.round(CONTRACT*p);cum+=a;
-    h+='<tr><td><span class="badge '+(i===4?'bg2':'bn')+'">'+'M'+i+(i===4?'=FINAL':'')+'</span></td>'
-      +'<td>'+mlEv[i]+'</td><td>'+mlM[i]+'</td>'
-      +'<td class="nr">฿'+a.toLocaleString()+'</td>'
-      +'<td class="nr">฿'+cum.toLocaleString()+'</td>'
-      +'<td>'+(p*100).toFixed(0)+'%</td></tr>';
-  });
-  tb.innerHTML=h;
-})();
-
-// S-CURVE
-var pvR=[0,0.0677,0.1579,0.2707,0.406,0.5489,0.6917,0.812,0.9098,0.9699,1.0];
-var BAC=68.95,X1=58,X2=580,Y1=24,Y2=208;
-function xp(m){return X1+(m/10)*(X2-X1);}
-function yp(v){return Y2-(v/BAC)*(Y2-Y1);}
-function renderSC(){
-  var dk=document.body.getAttribute('data-theme')==='dark';
-  var gc=dk?'rgba(255,255,255,.04)':'rgba(0,0,0,.05)',tc=dk?'#4A4860':'#9A98AA';
-  var pv=pvR.map(function(r){return +(r*BAC).toFixed(2);});
-  var g='';for(var i=0;i<=4;i++){var y=yp(i*BAC/4);g+='<line x1="'+X1+'" y1="'+y.toFixed(1)+'" x2="'+X2+'" y2="'+y.toFixed(1)+'" stroke="'+gc+'" stroke-width="1"/>';}
-  document.getElementById('sg').innerHTML=g;
-  var xl='';pv.forEach(function(_,i){xl+='<text x="'+xp(i).toFixed(1)+'" y="222" text-anchor="middle" font-size="9" fill="'+tc+'" font-family="DM Sans,sans-serif">M'+i+'</text>';});
-  document.getElementById('sxl').innerHTML=xl;
-  var yl='';[0,BAC*.25,BAC*.5,BAC*.75,BAC].forEach(function(v){yl+='<text x="54" y="'+(yp(v)+3).toFixed(1)+'" text-anchor="end" font-size="8" fill="'+tc+'" font-family="DM Sans,sans-serif">฿'+v.toFixed(1)+'M</text>';});
-  document.getElementById('syl').innerHTML=yl;
-  var pts=pv.map(function(v,i){return xp(i).toFixed(1)+','+yp(v).toFixed(1);});
-  var lp='M '+pts.join(' L ');
-  document.getElementById('sline').setAttribute('d',lp);
-  document.getElementById('sfill').setAttribute('d','M '+xp(0).toFixed(1)+','+Y2+' '+lp+' L '+xp(10).toFixed(1)+','+Y2+' Z');
-  var dots='';
-  pv.forEach(function(v,i){
-    if(i===0||i%2===0||i===10){
-      var x=xp(i).toFixed(1),y=yp(v).toFixed(1);
-      dots+='<circle cx="'+x+'" cy="'+y+'" r="3.5" fill="#2B2D8E" stroke="'+(dk?'#0C0C14':'#fff')+'" stroke-width="1.5"/>';
-      if(i>0&&i<10) dots+='<text x="'+x+'" y="'+(parseFloat(y)-7).toFixed(1)+'" text-anchor="middle" font-size="8" fill="#2B2D8E" font-family="DM Sans,sans-serif">฿'+v.toFixed(1)+'M</text>';
-    }
-  });
-  document.getElementById('sdots').innerHTML=dots;
+/* ── THEME ── */
+function toggleTheme() {
+  const h = document.documentElement;
+  const isDark = h.getAttribute('data-theme') === 'dark';
+  h.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('th').textContent = isDark ? '◐' : '◑';
 }
-renderSC();
 
-// RESOURCE
-var trades=[
-  {n:'Crew Lead A/B/C',d:[3,3,3,3,3,3,3,3,3,2]},
-  {n:'RC Foreman',d:[2,4,6,6,6,4,2,2,1,1]},
-  {n:'RC Workers',d:[4,10,18,20,18,12,6,4,2,2]},
-  {n:'Carpentry/Formwork',d:[2,4,6,8,8,6,4,2,0,0]},
-  {n:'Steel Deck Install',d:[0,0,2,4,8,8,6,2,0,0]},
-  {n:'Roof/Purlin',d:[0,0,1,2,4,4,2,1,0,0]},
-  {n:'Plasterer',d:[0,0,0,2,5,8,10,8,5,2]},
-  {n:'Tiler + Finish',d:[0,0,0,0,2,4,8,10,8,4]},
-  {n:'MEP/Electrician',d:[0,1,2,4,8,10,8,4,3,2]},
-  {n:'Sanitary/Plumber',d:[0,0,1,2,4,6,6,5,4,2]},
-  {n:'Supervisor/QA',d:[2,2,2,2,2,2,2,2,2,2]},
-];
-(function(){
-  var tb=document.getElementById('resbody'),tots=new Array(10).fill(0),h='';
-  trades.forEach(function(t){
-    var pk=Math.max.apply(null,t.d),row='<tr><td>'+t.n+'</td>';
-    t.d.forEach(function(v,i){tots[i]+=v;row+='<td class="'+(v===pk&&pk>0?'pk':v===0?'lo':'')+'">'+(v>0?v:'—')+'</td>';});
-    row+='<td style="font-weight:600;color:var(--navy)">'+pk+'</td></tr>';h+=row;
-  });
-  tb.innerHTML=h;
-  var ptot=Math.max.apply(null,tots),fr='<tr><td style="font-weight:600">TOTAL</td>';
-  tots.forEach(function(v){fr+='<td style="font-weight:600;'+(v>=ptot*.85?'color:#A32D2D':'')+'">'+v+'</td>';});
-  fr+='<td style="font-weight:700;color:var(--navy)">'+ptot+'</td></tr>';
-  document.getElementById('resfoot').outerHTML=fr;
-})();
-
-// RISK
-var risks=[
-  {n:'R1',desc:'Material price escalation (steel/concrete/diesel)',lk:'High',imp:'High',own:'Mitigated — Price Escalation Clause in contract'},
-  {n:'R2',desc:'Pile PDA data delay from China contractor',lk:'Med',imp:'Med',own:'CKY to chase — SEDR Rev 2.0 pending PDA'},
-  {n:'R3',desc:'Payment delay CKY → Forma (cashflow gap)',lk:'Med',imp:'High',own:'Mitigated — Back-to-Back clause 7 days'},
-  {n:'R4',desc:'Crew Lead A/B/C not hired before NTP',lk:'Low',imp:'High',own:'Supavinee — Offer letters NTP-14 days'},
-  {n:'R5',desc:'LD from Estate passed to Forma in full',lk:'Med',imp:'High',own:'Mitigated — LD cap ฿5,000/day/building'},
-  {n:'R6',desc:'Scope creep from dual-chain (Estate→CKY→Forma)',lk:'Med',imp:'Med',own:'VO process max 14 days per contract'},
-  {n:'R7',desc:'Weather / force majeure during rainy season',lk:'Med',imp:'Low',own:'Float built in M7–M9 · Force majeure clause'},
-];
-var lkMap={High:'br',Med:'bam',Low:'bg2'};
-(function(){
-  var rb=document.getElementById('riskbody'),h='';
-  risks.forEach(function(r){
-    h+='<div class="risk-row"><span style="font-size:10px;font-weight:600;color:var(--t3)">'+r.n+'</span>'
-      +'<span style="color:var(--t1)">'+r.desc+'</span>'
-      +'<span><span class="badge '+lkMap[r.lk]+'">'+r.lk+'</span></span>'
-      +'<span><span class="badge '+lkMap[r.imp]+'">'+r.imp+'</span></span>'
-      +'<span style="font-size:11px;color:var(--t2)">'+r.own+'</span></div>';
-  });
-  rb.innerHTML=h;
-})();
-
-// ORG
-function renderOrg(){
-  var dk=document.body.getAttribute('data-theme')==='dark';
-  var bg=dk?'#1A1A2E':'#fff',bdr=dk?'#2A2840':'#E8E6E0',tc=dk?'#F0EFF8':'#09090F',t2=dk?'#8A88A0':'#5A5870';
-  var nodes=[
-    {id:'ww',x:260,y:20,w:200,h:60,t:'Weerapong Wasukaratana',s:'CEO / EOR',s2:'PE ภย 59410 · PMP · LEED AP',fill:'#2B2D8E',lt:true},
-    {id:'tn',x:60,y:130,w:150,h:48,t:'Teeranai',s:'PM / Operations',fill:null},
-    {id:'gs',x:235,y:130,w:150,h:48,t:'GreenSun',s:'CM / QA Lead',fill:null},
-    {id:'kv',x:410,y:130,w:150,h:48,t:'Kavita',s:'BD · Eastern Region',fill:null},
-    {id:'ca',x:20,y:240,w:130,h:44,t:'Crew Lead A',s:'Bldg 1–2',fill:'#185FA5',lt:true},
-    {id:'cb',x:165,y:240,w:130,h:44,t:'Crew Lead B',s:'Bldg 3–4',fill:'#185FA5',lt:true},
-    {id:'cc',x:310,y:240,w:130,h:44,t:'Crew Lead C',s:'Bldg 5–7',fill:'#185FA5',lt:true},
-    {id:'sp',x:452,y:235,w:108,h:34,t:'Supavinee',s:'Coordinator',fill:null,sm:true},
-    {id:'pp',x:452,y:278,w:108,h:34,t:'Pormpun',s:'Coordinator',fill:null,sm:true},
-    {id:'sub',x:50,y:330,w:370,h:30,t:'RC · Steel Deck · MEP · Sanitary Sub-contractors',s:'',fill:'#085041',lt:true,sm:true},
-  ];
-  var edges=[['ww','tn'],['ww','gs'],['ww','kv'],['tn','ca'],['tn','cb'],['tn','cc'],['kv','sp'],['kv','pp'],['ca','sub'],['cb','sub'],['cc','sub']];
-  var lines='';
-  edges.forEach(function(e){
-    var a=nodes.find(function(n){return n.id===e[0];}),b=nodes.find(function(n){return n.id===e[1];});
-    if(!a||!b)return;
-    var x1=a.x+a.w/2,y1=a.y+a.h,x2=b.x+b.w/2,y2=b.y,my=(y1+y2)/2;
-    lines+='<path d="M'+x1+','+y1+' C'+x1+','+my+' '+x2+','+my+' '+x2+','+y2+'" fill="none" stroke="'+bdr+'" stroke-width="1.5"/>';
-  });
-  document.getElementById('orglines').innerHTML=lines;
-  var boxes='';
-  nodes.forEach(function(n){
-    var fill=n.fill||bg,stroke=n.fill||bdr,tcolor=n.lt?'#fff':(n.fill?'#E6F1FB':tc),scolor=n.lt?'rgba(255,255,255,.72)':(n.fill?'rgba(255,255,255,.6)':t2);
-    var cx=n.x+n.w/2,fs=n.sm?10:12,ty=n.s2?n.y+18:n.s?(n.y+n.h/2-6):(n.y+n.h/2+4);
-    boxes+='<rect x="'+n.x+'" y="'+n.y+'" width="'+n.w+'" height="'+n.h+'" rx="6" fill="'+fill+'" stroke="'+stroke+'" stroke-width="1.5"/>';
-    boxes+='<text x="'+cx+'" y="'+ty+'" text-anchor="middle" font-size="'+fs+'" font-weight="500" fill="'+tcolor+'" font-family="DM Sans,sans-serif">'+n.t+'</text>';
-    if(n.s)boxes+='<text x="'+cx+'" y="'+(ty+14)+'" text-anchor="middle" font-size="'+(n.sm?9:10)+'" fill="'+scolor+'" font-family="DM Sans,sans-serif">'+n.s+'</text>';
-    if(n.s2)boxes+='<text x="'+cx+'" y="'+(ty+28)+'" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.55)" font-family="DM Sans,sans-serif">'+n.s2+'</text>';
-  });
-  document.getElementById('orgboxes').innerHTML=boxes;
+/* ── FONT ── */
+function setF(size, id) {
+  document.documentElement.setAttribute('data-font', size);
+  ['fs','fm','fl'].forEach(i => document.getElementById(i).classList.remove('on'));
+  document.getElementById(id).classList.add('on');
 }
-renderOrg();
+
+/* ── TOOLTIP ENGINE ── */
+let active = null;
+let timer  = null;
+
+function show(id) {
+  clearTimeout(timer);
+  if (active && active !== id) close(active);
+  open(id);
+}
+
+function hide(id) {
+  timer = setTimeout(() => { close(id); }, 160);
+}
+
+function tap(id) {
+  const tip = document.getElementById('tip-' + id);
+  tip.classList.contains('show') ? close(id) : (close(active), open(id));
+}
+
+function open(id) {
+  if (!id) return;
+  const tip = document.getElementById('tip-' + id);
+  const btn = tip?.previousElementSibling;
+  if (!tip) return;
+  tip.classList.add('show');
+  if (btn) btn.setAttribute('aria-expanded', 'true');
+  active = id;
+}
+
+function close(id) {
+  if (!id) return;
+  const tip = document.getElementById('tip-' + id);
+  const btn = tip?.previousElementSibling;
+  if (!tip) return;
+  tip.classList.remove('show');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+  if (active === id) active = null;
+}
+
+/* Hover inside tooltip = keep open */
+document.querySelectorAll('.plat-tip').forEach(tip => {
+  tip.addEventListener('mouseenter', () => clearTimeout(timer));
+  tip.addEventListener('mouseleave', () => hide(tip.id.replace('tip-','')));
+});
+
+/* Outside click = close all */
+document.addEventListener('click', e => {
+  if (!e.target.closest('.plat')) {
+    document.querySelectorAll('.plat-tip').forEach(t => {
+      t.classList.remove('show');
+      const btn = t.previousElementSibling;
+      if (btn) btn.setAttribute('aria-expanded','false');
+    });
+    active = null;
+  }
+});
+
+/* Keyboard: Escape closes all */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.plat-tip').forEach(t => t.classList.remove('show'));
+    active = null;
+  }
+});
 </script>
 </body>
 </html>
