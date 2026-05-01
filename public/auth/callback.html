@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light" data-font-size="medium">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2B2D8E" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>กำลังเข้าสู่ระบบ… — Forma Constructor OS™</title>
+  <link rel="stylesheet" href="/css/forma-design-system.css" />
+  <style>
+    .cb-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-5) var(--space-4);
+    }
+    .cb-card { width: 100%; max-width: 440px; text-align: center; }
+    .cb-spinner {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--space-4);
+      border: 4px solid var(--border-color);
+      border-top-color: var(--forma-navy);
+      border-radius: 50%;
+      animation: cb-spin 0.9s linear infinite;
+    }
+    [data-theme="dark"] .cb-spinner { border-top-color: #8b8dff; }
+    @keyframes cb-spin { to { transform: rotate(360deg); } }
+    .cb-actions { margin-top: var(--space-5); display: grid; gap: var(--space-3); }
+  </style>
+</head>
+<body>
+  <main class="cb-shell">
+    <section class="forma-card cb-card" aria-live="polite">
+
+      <!-- Loading state (default) -->
+      <div id="stateLoading">
+        <div class="cb-spinner" aria-hidden="true"></div>
+        <h1 style="font-size:1.25rem;">กำลังเข้าสู่ระบบ…</h1>
+        <p class="text-muted">โปรดรอสักครู่ ระบบกำลังตรวจสอบบัญชีของคุณ</p>
+      </div>
+
+      <!-- Error state (hidden until needed) -->
+      <div id="stateError" class="hidden">
+        <h1 style="color:var(--forma-red);">เข้าสู่ระบบไม่สำเร็จ</h1>
+        <p id="errorMsg" class="text-muted"></p>
+        <div class="cb-actions">
+          <a href="/auth/login.html" class="forma-btn forma-btn-primary forma-btn-block">
+            กลับไปหน้าเข้าสู่ระบบ
+          </a>
+          <a href="/" class="forma-btn forma-btn-ghost forma-btn-block">
+            กลับหน้าหลัก
+          </a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      // Apply saved theme/font early so the loading state matches the user's pref.
+      const root = document.documentElement;
+      const t = localStorage.getItem("forma:theme");
+      const f = localStorage.getItem("forma:fontSize");
+      if (t) root.setAttribute("data-theme", t);
+      if (f) root.setAttribute("data-font-size", f);
+
+      const loadingEl = document.getElementById("stateLoading");
+      const errorEl   = document.getElementById("stateError");
+      const errorMsg  = document.getElementById("errorMsg");
+
+      function showError(message) {
+        loadingEl.classList.add("hidden");
+        errorEl.classList.remove("hidden");
+        errorMsg.textContent = message || "เกิดข้อผิดพลาด ไม่สามารถตรวจสอบบัญชีได้";
+      }
+
+      function safeNext() {
+        const params = new URLSearchParams(window.location.search);
+        const next = params.get("next");
+        if (next && next.startsWith("/") && !next.startsWith("//")) return next;
+        return "/dashboard/";
+      }
+
+      // 1) URL-level error from the OAuth provider (e.g. user denied access).
+      //    Supabase puts these in either query string or hash fragment.
+      const url = new URL(window.location.href);
+      const hash = new URLSearchParams(url.hash.replace(/^#/, ""));
+      const providerErr =
+        url.searchParams.get("error_description") ||
+        url.searchParams.get("error") ||
+        hash.get("error_description") ||
+        hash.get("error");
+      if (providerErr) {
+        showError(decodeURIComponent(providerErr.replace(/\+/g, " ")));
+        return;
+      }
+
+      if (!window.FormaAuth) {
+        showError("ระบบยังโหลดไม่ครบ กรุณารีเฟรชหน้านี้");
+        return;
+      }
+
+      // 2) Wait for the session. supabase-js with detectSessionInUrl:true
+      //    will parse the OAuth response and fire SIGNED_IN. If the session
+      //    is already present (fast path), getUser() returns it immediately.
+      let settled = false;
+      const sub = window.FormaAuth.onAuthChange(async function (event, session) {
+        if (settled) return;
+        if (session?.user) {
+          settled = true;
+          try { sub.unsubscribe(); } catch (_) {}
+          // ensureProfile is also called by onAuthChange in auth.js, but
+          // awaiting once here makes redirect deterministic.
+          try { await window.FormaAuth.ensureProfile(session.user); } catch (_) {}
+          window.location.replace(safeNext());
+        }
+      });
+
+      // Fast path: session may already be ready.
+      window.FormaAuth.getUser().then(async function (user) {
+        if (settled) return;
+        if (user) {
+          settled = true;
+          try { sub.unsubscribe(); } catch (_) {}
+          try { await window.FormaAuth.ensureProfile(user); } catch (_) {}
+          window.location.replace(safeNext());
+        }
+      });
+
+      // Hard timeout — if neither path resolves, surface a useful error
+      // instead of leaving the user staring at a spinner.
+      setTimeout(function () {
+        if (settled) return;
+        settled = true;
+        try { sub.unsubscribe(); } catch (_) {}
+        showError("ใช้เวลานานเกินกำหนด กรุณาลองเข้าสู่ระบบอีกครั้ง");
+      }, 10000);
+    })();
+  </script>
+</body>
+</html>
