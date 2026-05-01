@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light" data-font-size="medium">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2B2D8E" />
+  <title>แดชบอร์ด — Forma Constructor OS™</title>
+  <link rel="stylesheet" href="/css/forma-design-system.css" />
+  <style>
+    .dash-hero {
+      background: linear-gradient(135deg, var(--forma-navy), #3d40b8);
+      color: #fff;
+      padding: var(--space-6) var(--space-4);
+      border-radius: var(--radius-lg);
+      margin: var(--space-5) 0;
+    }
+    [data-theme="dark"] .dash-hero {
+      background: linear-gradient(135deg, #1d1f6e, #2B2D8E);
+    }
+    .dash-hero h1 { color: #fff; margin-bottom: var(--space-2); }
+    .dash-hero p { margin: 0; opacity: 0.9; }
+    .dash-tier-row {
+      display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 720px) {
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .tools-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .tool-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      position: relative;
+    }
+    .tool-card-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .tool-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .tool-card h3 { margin: 0; }
+    .tool-card p { margin: 0; color: var(--text-muted); flex: 1; }
+    .tool-card[data-locked="true"] {
+      opacity: 0.7;
+    }
+    .tool-card[data-locked="true"]::after {
+      content: "🔒";
+      position: absolute; top: var(--space-3); right: var(--space-3);
+      font-size: 1.2rem;
+    }
+    .section-title {
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-3);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .skeleton {
+      background: var(--border-color);
+      border-radius: var(--radius);
+      animation: skeleton 1.2s ease-in-out infinite;
+    }
+    .skeleton-line { height: 1rem; margin-bottom: var(--space-2); }
+    @keyframes skeleton {
+      0%, 100% { opacity: 0.6; }
+      50%      { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="forma-header">
+    <div class="forma-header-inner">
+      <a href="/" class="forma-logo">FORMA</a>
+      <div class="flex items-center gap-3">
+        <div class="forma-prefs" role="group" aria-label="ตั้งค่าการแสดงผล">
+          <button type="button" id="themeBtn" aria-pressed="false" title="สลับธีม">🌓</button>
+          <button type="button" data-font="small"  aria-pressed="false">ก-</button>
+          <button type="button" data-font="medium" aria-pressed="true">ก</button>
+          <button type="button" data-font="large"  aria-pressed="false">ก+</button>
+        </div>
+        <button id="logoutBtn" type="button" class="forma-btn forma-btn-ghost"
+                style="min-height:40px;padding:0 var(--space-3);">ออกจากระบบ</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main class="container">
+
+    <!-- Hero / greeting -->
+    <section class="dash-hero" aria-labelledby="dashGreeting">
+      <h1 id="dashGreeting">สวัสดีค่ะ <span id="userName">…</span></h1>
+      <p id="userEmail" style="opacity:0.85;">…</p>
+      <div class="dash-tier-row">
+        <span>แพ็กเกจปัจจุบัน:</span>
+        <span class="forma-badge forma-badge-navy" id="tierBadge">…</span>
+        <span id="tierExpires" class="text-muted hidden" style="font-size:0.9rem;color:#e0e0ff;"></span>
+        <a id="upgradeLink" href="/upgrade/" class="forma-btn forma-btn-danger hidden"
+           style="min-height:40px;padding:0 var(--space-4);">อัปเกรด</a>
+      </div>
+    </section>
+
+    <!-- Loading skeleton (shown until profile loads) -->
+    <div id="dashLoading">
+      <div class="forma-card">
+        <div class="skeleton skeleton-line" style="width:60%;"></div>
+        <div class="skeleton skeleton-line" style="width:90%;"></div>
+        <div class="skeleton skeleton-line" style="width:80%;"></div>
+      </div>
+    </div>
+
+    <!-- Tools (revealed after profile loads) -->
+    <div id="dashContent" class="hidden">
+
+      <h2 class="section-title">เครื่องมือทั้งหมด</h2>
+      <div class="tools-grid" id="toolsGrid"><!-- populated by JS --></div>
+
+      <h2 class="section-title">บัญชีและประวัติ</h2>
+      <div class="tools-grid">
+        <a class="forma-card forma-card-hover tool-card" href="/dashboard/projects.html">
+          <div class="tool-card-head">
+            <span class="tool-icon" aria-hidden="true">🗂️</span>
+            <h3>ประวัติโปรเจกต์</h3>
+          </div>
+          <p>ดูและดาวน์โหลด PDF ของโปรเจกต์ที่เคยคำนวณไว้</p>
+        </a>
+        <a class="forma-card forma-card-hover tool-card" href="/dashboard/account.html">
+          <div class="tool-card-head">
+            <span class="tool-icon" aria-hidden="true">⚙️</span>
+            <h3>บัญชีและการเรียกเก็บเงิน</h3>
+          </div>
+          <p>จัดการข้อมูลบัญชี รหัสผ่าน และประวัติการชำระเงิน</p>
+        </a>
+      </div>
+
+      <p class="auth-footer-note text-center text-muted" style="margin:var(--space-6) 0;font-size:0.85rem;">
+        วิศวกรผู้รับรอง: <strong>Weerapong Wasukaratana</strong> · ภย ๕๙๔๑๐ · Forma Corp ๓๕๐๒๖๗
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ===== Scripts ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/tier-guard.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      /* ---------- Theme + font preference (same pattern as login) ---------- */
+      const root = document.documentElement;
+      const t = localStorage.getItem("forma:theme");
+      const f = localStorage.getItem("forma:fontSize");
+      if (t) root.setAttribute("data-theme", t);
+      if (f) root.setAttribute("data-font-size", f);
+
+      const themeBtn = document.getElementById("themeBtn");
+      themeBtn.setAttribute("aria-pressed", root.getAttribute("data-theme") === "dark");
+      themeBtn.addEventListener("click", function () {
+        const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("forma:theme", next);
+        themeBtn.setAttribute("aria-pressed", next === "dark");
+      });
+
+      const fontBtns = document.querySelectorAll("[data-font]");
+      function syncFontPressed(active) {
+        fontBtns.forEach(function (b) {
+          b.setAttribute("aria-pressed", b.dataset.font === active);
+        });
+      }
+      syncFontPressed(root.getAttribute("data-font-size") || "medium");
+      fontBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const v = btn.dataset.font;
+          root.setAttribute("data-font-size", v);
+          localStorage.setItem("forma:fontSize", v);
+          syncFontPressed(v);
+        });
+      });
+
+      /* ---------- Logout ---------- */
+      document.getElementById("logoutBtn").addEventListener("click", async function () {
+        await window.FormaAuth.logout();
+        window.location.href = "/";
+      });
+
+      /* ---------- Tool catalog ---------- */
+      // Each entry declares the minimum tier needed. The tier guard
+      // determines whether the card links to the tool or to /upgrade/.
+      const TOOLS = [
+        { id: "calc",      tier: "free",     icon: "🧮", title: "One-Click Calc",
+          href: "/tools/calc.html",
+          desc: "คำนวณโครงสร้างพื้นฐานเร็ว ๆ — ใช้ได้ทุก tier ไม่จำกัดจำนวน" },
+        { id: "full",      tier: "pro",      icon: "🏗️", title: "Full Structural Calc v4",
+          href: "/tools/full-calc.html",
+          desc: "คำนวณ 6 Layers + Kindergarten Mode + PDF report ครบชุด" },
+        { id: "loan",      tier: "pro",      icon: "🏦", title: "Bank Loan Package",
+          href: "/tools/bank-loan.html",
+          desc: "สร้างชุดเอกสารสำหรับยื่นกู้ธนาคาร พร้อม BOQ และตารางงาน" },
+        { id: "permit",    tier: "pro",      icon: "📑", title: "Permit Package",
+          href: "/tools/permit.html",
+          desc: "ชุดเอกสารขออนุญาตก่อสร้าง — แบบฟอร์มและ checklist ครบ" },
+        { id: "fcip",      tier: "engineer", icon: "🔬", title: "FCIP Suite",
+          href: "/tools/fcip/",
+          desc: "Forma Civil Intelligence Platform — Retaining Wall, M1 Engine และอื่น ๆ" },
+        { id: "stamp",     tier: "engineer", icon: "✒️", title: "Engineer Stamp Workflow",
+          href: "/tools/fcip/stamp.html",
+          desc: "ส่งงานให้วิศวกรตรวจและประทับตรา (manual review เสมอ)" },
+        { id: "match",     tier: "enterprise", icon: "🤝", title: "Contractor Match",
+          href: "/tools/match.html",
+          desc: "ระบบจับคู่ผู้รับเหมาและทีมงาน สำหรับองค์กร white-label" },
+      ];
+
+      const TIER_LABEL = {
+        free: "FREE", pro: "PRO", engineer: "ENGINEER", enterprise: "ENTERPRISE",
+      };
+
+      function tierBadgeClass(tier) {
+        if (tier === "enterprise") return "forma-badge-warn";
+        if (tier === "engineer")   return "forma-badge-red";
+        if (tier === "pro")        return "forma-badge-navy";
+        return "forma-badge";
+      }
+
+      function formatExpiry(iso) {
+        if (!iso) return "";
+        const d = new Date(iso);
+        if (!Number.isFinite(d.getTime())) return "";
+        return d.toLocaleDateString("th-TH", {
+          year: "numeric", month: "short", day: "numeric",
+        });
+      }
+
+      function renderTools(profile) {
+        const grid = document.getElementById("toolsGrid");
+        grid.innerHTML = "";
+        TOOLS.forEach(function (tool) {
+          const allowed = window.FormaTier.hasAccess(profile, tool.tier);
+          const a = document.createElement("a");
+          a.className = "forma-card forma-card-hover tool-card";
+          a.href = allowed
+            ? tool.href
+            : "/upgrade/?required=" + encodeURIComponent(tool.tier) +
+              "&from=" + encodeURIComponent("/dashboard/");
+          a.dataset.locked = allowed ? "false" : "true";
+
+          const head = document.createElement("div");
+          head.className = "tool-card-head";
+          head.innerHTML =
+            '<span class="tool-icon" aria-hidden="true">' + tool.icon + "</span>" +
+            '<span class="forma-badge ' + tierBadgeClass(tool.tier) + '">' +
+            TIER_LABEL[tool.tier] + "</span>";
+
+          const h3 = document.createElement("h3");
+          h3.textContent = tool.title;
+
+          const p = document.createElement("p");
+          p.textContent = tool.desc;
+
+          a.appendChild(head);
+          a.appendChild(h3);
+          a.appendChild(p);
+
+          if (!allowed) {
+            const cta = document.createElement("span");
+            cta.className = "text-muted";
+            cta.style.fontWeight = "600";
+            cta.textContent = "🔓 อัปเกรดเป็น " + TIER_LABEL[tool.tier] + " เพื่อปลดล็อก";
+            a.appendChild(cta);
+          }
+
+          grid.appendChild(a);
+        });
+      }
+
+      function renderProfile(profile) {
+        const effective = window.FormaTier.getEffectiveTier(profile);
+
+        document.getElementById("userName").textContent =
+          profile.full_name || profile.email || "ผู้ใช้";
+        document.getElementById("userEmail").textContent = profile.email || "";
+
+        const badge = document.getElementById("tierBadge");
+        badge.textContent = TIER_LABEL[effective];
+        badge.className = "forma-badge " + tierBadgeClass(effective);
+
+        const exp = document.getElementById("tierExpires");
+        if (profile.tier_expires_at && effective !== "free") {
+          exp.textContent = "หมดอายุ " + formatExpiry(profile.tier_expires_at);
+          exp.classList.remove("hidden");
+        } else {
+          exp.classList.add("hidden");
+        }
+
+        const upgrade = document.getElementById("upgradeLink");
+        if (effective !== "enterprise") {
+          upgrade.classList.remove("hidden");
+        } else {
+          upgrade.classList.add("hidden");
+        }
+
+        renderTools(profile);
+
+        document.getElementById("dashLoading").classList.add("hidden");
+        document.getElementById("dashContent").classList.remove("hidden");
+      }
+
+      /* ---------- Boot: require auth, then render ---------- */
+      window.FormaAuth.getProfile().then(function (profile) {
+        if (!profile) {
+          const next = encodeURIComponent("/dashboard/");
+          window.location.replace("/auth/login.html?next=" + next);
+          return;
+        }
+        renderProfile(profile);
+      }).catch(function (err) {
+        console.error("[Forma] dashboard boot failed:", err);
+        const next = encodeURIComponent("/dashboard/");
+        window.location.replace("/auth/login.html?next=" + next);
+      });
+    })();
+  </script>
+</body>
+</html>
