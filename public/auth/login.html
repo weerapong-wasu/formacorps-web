@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light" data-font-size="medium">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2B2D8E" />
+  <title>เข้าสู่ระบบ — Forma Constructor OS™</title>
+  <meta name="description" content="เข้าสู่ระบบหรือสมัครสมาชิก Forma Constructor OS — Anyone Can Be Constructor" />
+  <link rel="stylesheet" href="/css/forma-design-system.css" />
+  <style>
+    /* Page-specific layout — keep minimal; tokens come from design system */
+    .auth-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .auth-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-5) var(--space-4);
+    }
+    .auth-card { width: 100%; max-width: 440px; }
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+      background: var(--bg-primary);
+      padding: var(--space-1);
+      border-radius: var(--radius);
+      margin-bottom: var(--space-5);
+    }
+    .auth-tab {
+      min-height: 44px;
+      padding: var(--space-2);
+      background: transparent;
+      border: none;
+      border-radius: calc(var(--radius) - 2px);
+      font: inherit;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+    .auth-tab[aria-selected="true"] {
+      background: var(--bg-surface);
+      color: var(--forma-navy);
+      box-shadow: var(--shadow-sm);
+    }
+    [data-theme="dark"] .auth-tab[aria-selected="true"] { color: #8b8dff; }
+    .auth-google {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+    .auth-google svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .auth-footer-note {
+      margin-top: var(--space-5);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-shell">
+
+    <!-- ===== Header ===== -->
+    <header class="forma-header">
+      <div class="forma-header-inner">
+        <a href="/" class="forma-logo">FORMA</a>
+        <div class="forma-prefs" role="group" aria-label="ตั้งค่าการแสดงผล">
+          <button type="button" id="themeBtn" aria-pressed="false" title="สลับธีม">🌓</button>
+          <button type="button" data-font="small"  aria-pressed="false">ก-</button>
+          <button type="button" data-font="medium" aria-pressed="true">ก</button>
+          <button type="button" data-font="large"  aria-pressed="false">ก+</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Main ===== -->
+    <main class="auth-main">
+      <section class="forma-card auth-card" aria-labelledby="authHeading">
+
+        <h1 id="authHeading" class="text-center" style="margin-bottom:var(--space-2);">
+          Forma Constructor OS™
+        </h1>
+        <p class="text-center text-muted" style="margin-bottom:var(--space-5);">
+          Anyone Can Be Constructor
+        </p>
+
+        <!-- Tabs -->
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab" id="tabLogin"
+                  role="tab" aria-selected="true" aria-controls="formLogin">
+            เข้าสู่ระบบ
+          </button>
+          <button type="button" class="auth-tab" id="tabSignup"
+                  role="tab" aria-selected="false" aria-controls="formSignup">
+            สมัครสมาชิก
+          </button>
+        </div>
+
+        <!-- Status / errors -->
+        <div id="authMsg" class="forma-alert hidden" role="status" aria-live="polite"></div>
+
+        <!-- ===== Login form ===== -->
+        <form id="formLogin" class="stack" novalidate>
+          <div class="forma-field">
+            <label class="forma-label" for="loginEmail">อีเมล</label>
+            <input class="forma-input" id="loginEmail" type="email"
+                   autocomplete="email" inputmode="email" required
+                   placeholder="you@example.com" />
+          </div>
+          <div class="forma-field">
+            <label class="forma-label" for="loginPassword">รหัสผ่าน</label>
+            <input class="forma-input" id="loginPassword" type="password"
+                   autocomplete="current-password" required minlength="6"
+                   placeholder="อย่างน้อย 6 ตัวอักษร" />
+          </div>
+          <button type="submit" class="forma-btn forma-btn-primary forma-btn-block" id="loginSubmit">
+            เข้าสู่ระบบ
+          </button>
+        </form>
+
+        <!-- ===== Signup form (hidden by default) ===== -->
+        <form id="formSignup" class="stack hidden" novalidate>
+          <div class="forma-field">
+            <label class="forma-label" for="signupName">ชื่อ-นามสกุล</label>
+            <input class="forma-input" id="signupName" type="text"
+                   autocomplete="name" required placeholder="ชื่อ นามสกุล" />
+          </div>
+          <div class="forma-field">
+            <label class="forma-label" for="signupEmail">อีเมล</label>
+            <input class="forma-input" id="signupEmail" type="email"
+                   autocomplete="email" inputmode="email" required
+                   placeholder="you@example.com" />
+          </div>
+          <div class="forma-field">
+            <label class="forma-label" for="signupPhone">เบอร์โทร <span class="text-muted">(ไม่บังคับ)</span></label>
+            <input class="forma-input" id="signupPhone" type="tel"
+                   autocomplete="tel" inputmode="tel"
+                   placeholder="08X-XXX-XXXX" />
+          </div>
+          <div class="forma-field">
+            <label class="forma-label" for="signupPassword">รหัสผ่าน</label>
+            <input class="forma-input" id="signupPassword" type="password"
+                   autocomplete="new-password" required minlength="6"
+                   placeholder="อย่างน้อย 6 ตัวอักษร" />
+            <div class="forma-help">เริ่มต้นด้วย tier <strong>Free</strong> — ใช้ One-Click Calc ได้ทันที</div>
+          </div>
+          <button type="submit" class="forma-btn forma-btn-primary forma-btn-block" id="signupSubmit">
+            สมัครสมาชิก
+          </button>
+        </form>
+
+        <!-- ===== Divider + Google ===== -->
+        <div class="forma-divider">หรือ</div>
+
+        <button type="button" id="googleBtn"
+                class="forma-btn forma-btn-outline forma-btn-block auth-google">
+          <svg viewBox="0 0 18 18" aria-hidden="true">
+            <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.71v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.61z"/>
+            <path fill="#34A853" d="M9 18c2.43 0 4.47-.81 5.96-2.18l-2.92-2.26c-.81.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.34A8.99 8.99 0 0 0 9 18z"/>
+            <path fill="#FBBC05" d="M3.97 10.71A5.4 5.4 0 0 1 3.68 9c0-.59.1-1.17.29-1.71V4.95H.96A8.99 8.99 0 0 0 0 9c0 1.45.35 2.82.96 4.05l3.01-2.34z"/>
+            <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58A8.99 8.99 0 0 0 9 0 8.99 8.99 0 0 0 .96 4.95l3.01 2.34C4.68 5.16 6.66 3.58 9 3.58z"/>
+          </svg>
+          <span>เข้าสู่ระบบด้วย Google</span>
+        </button>
+
+        <p class="auth-footer-note">
+          การใช้บริการถือว่ายอมรับ <a href="/terms.html">ข้อตกลงการใช้งาน</a>
+          และ <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a>
+        </p>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- ===== Scripts ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      /* ---------- Theme + font-size persistence ---------- */
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem("forma:theme");
+      const savedFont  = localStorage.getItem("forma:fontSize");
+      if (savedTheme) root.setAttribute("data-theme", savedTheme);
+      if (savedFont)  root.setAttribute("data-font-size", savedFont);
+
+      const themeBtn = document.getElementById("themeBtn");
+      themeBtn.setAttribute("aria-pressed", root.getAttribute("data-theme") === "dark");
+      themeBtn.addEventListener("click", function () {
+        const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("forma:theme", next);
+        themeBtn.setAttribute("aria-pressed", next === "dark");
+      });
+
+      const fontBtns = document.querySelectorAll("[data-font]");
+      function syncFontPressed(active) {
+        fontBtns.forEach(function (b) {
+          b.setAttribute("aria-pressed", b.dataset.font === active);
+        });
+      }
+      syncFontPressed(root.getAttribute("data-font-size") || "medium");
+      fontBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const v = btn.dataset.font;
+          root.setAttribute("data-font-size", v);
+          localStorage.setItem("forma:fontSize", v);
+          syncFontPressed(v);
+        });
+      });
+
+      /* ---------- Tab switching ---------- */
+      const tabLogin   = document.getElementById("tabLogin");
+      const tabSignup  = document.getElementById("tabSignup");
+      const formLogin  = document.getElementById("formLogin");
+      const formSignup = document.getElementById("formSignup");
+      const msgEl      = document.getElementById("authMsg");
+
+      function showTab(which) {
+        const isLogin = which === "login";
+        tabLogin.setAttribute("aria-selected", isLogin);
+        tabSignup.setAttribute("aria-selected", !isLogin);
+        formLogin.classList.toggle("hidden", !isLogin);
+        formSignup.classList.toggle("hidden", isLogin);
+        clearMsg();
+      }
+      tabLogin.addEventListener("click",  function () { showTab("login"); });
+      tabSignup.addEventListener("click", function () { showTab("signup"); });
+
+      /* ---------- Messages ---------- */
+      function showMsg(text, kind) {
+        msgEl.textContent = text;
+        msgEl.classList.remove("hidden",
+          "forma-alert-success", "forma-alert-danger", "forma-alert-info");
+        msgEl.classList.add("forma-alert-" + (kind || "info"));
+      }
+      function clearMsg() {
+        msgEl.classList.add("hidden");
+        msgEl.textContent = "";
+      }
+
+      /* ---------- Where to redirect after success ---------- */
+      function redirectAfterAuth() {
+        const params = new URLSearchParams(window.location.search);
+        const next = params.get("next");
+        // Same-origin paths only — never redirect off-site.
+        if (next && next.startsWith("/") && !next.startsWith("//")) {
+          window.location.href = next;
+        } else {
+          window.location.href = "/dashboard/";
+        }
+      }
+
+      /* ---------- Submit handlers ---------- */
+      formLogin.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        clearMsg();
+        const btn = document.getElementById("loginSubmit");
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
+        if (!email || !password) {
+          showMsg("กรุณากรอกอีเมลและรหัสผ่าน", "danger");
+          return;
+        }
+        btn.disabled = true; btn.textContent = "กำลังเข้าสู่ระบบ…";
+        const res = await window.FormaAuth.login(email, password);
+        if (res.ok) {
+          showMsg("เข้าสู่ระบบสำเร็จ กำลังพาไปยังแดชบอร์ด…", "success");
+          setTimeout(redirectAfterAuth, 600);
+        } else {
+          showMsg(res.error || "เข้าสู่ระบบไม่สำเร็จ", "danger");
+          btn.disabled = false; btn.textContent = "เข้าสู่ระบบ";
+        }
+      });
+
+      formSignup.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        clearMsg();
+        const btn = document.getElementById("signupSubmit");
+        const name     = document.getElementById("signupName").value.trim();
+        const email    = document.getElementById("signupEmail").value.trim();
+        const phone    = document.getElementById("signupPhone").value.trim();
+        const password = document.getElementById("signupPassword").value;
+        if (!name || !email || !password) {
+          showMsg("กรุณากรอกข้อมูลให้ครบ", "danger");
+          return;
+        }
+        if (password.length < 6) {
+          showMsg("รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร", "danger");
+          return;
+        }
+        btn.disabled = true; btn.textContent = "กำลังสมัคร…";
+        const res = await window.FormaAuth.signup(email, password, name, phone || null);
+        if (res.ok) {
+          if (res.session) {
+            showMsg("สมัครสำเร็จ กำลังพาไปยังแดชบอร์ด…", "success");
+            setTimeout(redirectAfterAuth, 600);
+          } else {
+            // Email confirmation required by Supabase project settings.
+            showMsg("สมัครสำเร็จ — กรุณาตรวจสอบอีเมลเพื่อยืนยันบัญชี", "success");
+            btn.disabled = false; btn.textContent = "สมัครสมาชิก";
+          }
+        } else {
+          showMsg(res.error || "สมัครไม่สำเร็จ", "danger");
+          btn.disabled = false; btn.textContent = "สมัครสมาชิก";
+        }
+      });
+
+      document.getElementById("googleBtn").addEventListener("click", async function () {
+        clearMsg();
+        const params = new URLSearchParams(window.location.search);
+        const next = params.get("next");
+        const cb = window.location.origin + "/auth/callback.html" +
+                   (next ? "?next=" + encodeURIComponent(next) : "");
+        const res = await window.FormaAuth.loginWithGoogle(cb);
+        if (!res.ok) showMsg(res.error || "Google sign-in ไม่สำเร็จ", "danger");
+      });
+
+      /* ---------- Already logged in? Skip the form. ---------- */
+      window.FormaAuth.getUser().then(function (user) {
+        if (user) redirectAfterAuth();
+      });
+    })();
+  </script>
+</body>
+</html>
