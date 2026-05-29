@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-font="m">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ตารางงาน IDEO สาทร ท่าพระ | Forma Corporations</title>
+<link rel="canonical" href="https://formacorps.com/ideo-schedule">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-family:"Sarabun",sans-serif;font-size:14px;min-height:100vh}
+body{min-height:100vh}
+
+/* LIGHT MODE */
+html[data-theme="light"]{
+  --bg:#F4F6FB;--surf:#fff;--surf2:#F0F3FA;
+  --bd:#DDE3F0;--text:#1A1D3A;--sub:#5A6080;--muted:#9098C0;
+  --navy:#2B2D8E;--nvy2:#1E2070;--nvyl:#E8EAFB;
+  --red:#E8192C;
+  --grn:#0F6E56;--grnbg:#ECFDF5;--grnt:#065F46;
+  --amb:#B45309;--ambbg:#FFFBEB;--ambt:#92400E;
+  --dng:#991B1B;--dngbg:#FEF2F2;--dngt:#7F1D1D;
+  --blu:#185FA5;--blubg:#EFF6FF;--blut:#1E40AF;
+  --prp:#5B21B6;--prpbg:#F5F3FF;
+  --rn1:rgba(180,83,9,0.07);--rn2:rgba(153,27,27,0.08);
+  background:var(--bg);color:var(--text)
+}
+/* DARK MODE */
+html[data-theme="dark"]{
+  --bg:#0D0F1E;--surf:#161829;--surf2:#1D2035;
+  --bd:#2A2E50;--text:#E4E6F8;--sub:#8890C0;--muted:#5A608A;
+  --navy:#4A4ECC;--nvy2:#6366E8;--nvyl:#1A1D40;
+  --red:#FF4459;
+  --grn:#10B981;--grnbg:#064E3B;--grnt:#6EE7B7;
+  --amb:#F59E0B;--ambbg:#451A03;--ambt:#FCD34D;
+  --dng:#EF4444;--dngbg:#450A0A;--dngt:#FCA5A5;
+  --blu:#3B82F6;--blubg:#1E3A5F;--blut:#93C5FD;
+  --prp:#8B5CF6;--prpbg:#2E1065;
+  --rn1:rgba(251,191,36,0.08);--rn2:rgba(239,68,68,0.1);
+  background:var(--bg);color:var(--text)
+}
+html{transition:background .25s,color .25s}
+
+@media print{
+  .no-print{display:none!important}
+  .sb-col{display:none!important}
+  html[data-theme="dark"]{--bg:#fff;--surf:#fff;--surf2:#f5f5f5;--text:#000;--sub:#444;--bd:#ccc}
+  @page{size:A3 landscape;margin:8mm}
+}
+
+/* TOP BAR */
+.topbar{background:var(--surf);border-bottom:2.5px solid var(--navy);
+  height:54px;padding:0 16px;display:flex;align-items:center;
+  justify-content:space-between;position:sticky;top:0;z-index:200;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);gap:8px}
+.brand{display:flex;align-items:center;gap:8px}
+.logo-a{display:flex;align-items:center;gap:6px;text-decoration:none;
+  padding-right:12px;border-right:1px solid var(--bd)}
+.bars{display:flex;gap:2px;align-items:flex-end}
+
+/* FONT SIZE */
+html[data-font="s"]{font-size:12px}
+html[data-font="m"]{font-size:14px}
+html[data-font="l"]{font-size:16px}
+.bars i{display:block;width:4px;border-radius:1px;background:var(--red)}
+.bars i:nth-child(1){height:7px}.bars i:nth-child(2){height:13px}.bars i:nth-child(3){height:7px}
+.wm{font-size:11px;font-weight:700;color:var(--navy);letter-spacing:.08em}
+.pjn{font-size:12px;font-weight:600;color:var(--text)}
+.pjm{font-size:9px;color:var(--sub)}
+.tr{display:flex;align-items:center;gap:5px}
+.lpill{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;
+  padding:3px 9px;border-radius:20px;background:var(--grnbg);color:var(--grnt);
+  border:1px solid var(--grn)}
+.ldot{width:6px;height:6px;border-radius:50%;background:var(--grn);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.btn{font-family:"Sarabun",sans-serif;font-size:11px;font-weight:600;
+  padding:5px 10px;border-radius:6px;cursor:pointer;border:1px solid var(--bd);
+  background:var(--surf);color:var(--sub);transition:all .15s;line-height:1}
+.btn:hover{border-color:var(--navy);color:var(--navy);background:var(--nvyl)}
+.btn.p{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.p:hover{background:var(--nvy2)}
+.btn.ico{width:30px;height:30px;padding:0;display:flex;align-items:center;justify-content:center;font-size:14px}
+
+/* MAIN */
+.main{display:flex;align-items:flex-start;min-height:400px}
+.sb-col{width:250px;flex-shrink:0;background:var(--surf);border-right:1px solid var(--bd);overflow-y:auto;padding:12px;position:sticky;top:54px;height:calc(100vh - 54px)}
+.content{flex:1;min-width:0;display:flex;flex-direction:column}
+
+/* SIDEBAR */
+.sg{margin-bottom:16px}
+.sgt{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--bd)}
+.ci{margin-bottom:9px}
+.cit{display:flex;justify-content:space-between;margin-bottom:2px}
+.cil{font-size:11px;font-weight:600;color:var(--text)}
+.civ{font-size:11px;font-family:"IBM Plex Mono",monospace;font-weight:500;color:var(--navy)}
+.cih{font-size:9px;color:var(--muted);margin-bottom:3px;line-height:1.4}
+input[type=range]{width:100%;height:3px;-webkit-appearance:none;background:var(--bd);border-radius:2px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--navy);border:2px solid var(--surf);cursor:pointer}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:8px}
+.mb{font-family:"Sarabun",sans-serif;font-size:10px;font-weight:600;
+  padding:5px 3px;text-align:center;border-radius:5px;
+  border:1px solid var(--bd);background:var(--surf2);color:var(--sub);cursor:pointer}
+.mb.rain{background:var(--ambbg);border-color:var(--amb);color:var(--ambt)}
+.mb.heavy{background:var(--dngbg);border-color:var(--dng);color:var(--dngt)}
+.fac{display:flex;align-items:flex-start;gap:6px;padding:5px 0;border-bottom:1px solid var(--bd)}
+.fac:last-child{border-bottom:none}
+.fb{flex:1;min-width:0}
+.fn{font-size:11px;font-weight:600;color:var(--text);line-height:1.3}
+.fd{font-size:9px;color:var(--muted);line-height:1.35;margin-top:1px}
+.fd2{font-size:9px;font-family:"IBM Plex Mono",monospace;font-weight:700;flex-shrink:0;margin-top:2px}
+.fd2.h{color:var(--dng)}.fd2.m{color:var(--amb)}.fd2.l{color:var(--grn)}
+.sw{position:relative;width:28px;height:16px;flex-shrink:0;margin-top:2px}
+.sw input{opacity:0;width:0;height:0;position:absolute}
+.swt{position:absolute;inset:0;border-radius:8px;background:var(--bd);cursor:pointer;transition:.2s}
+.swt::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;
+  background:var(--surf);top:3px;left:3px;transition:.2s}
+.sw input:checked+.swt{background:var(--navy)}
+.sw input:checked+.swt::after{transform:translateX(12px)}
+.tbox{border-radius:6px;padding:7px 9px;margin-bottom:6px;font-size:10px;line-height:1.5}
+.tbox b{display:block;font-size:10px;font-weight:700;margin-bottom:1px}
+.tbox.w{background:var(--dngbg);border:1px solid var(--dng);color:var(--dngt)}
+.tbox.i{background:var(--blubg);border:1px solid var(--blu);color:var(--blut)}
+.tbox.ok{background:var(--grnbg);border:1px solid var(--grn);color:var(--grnt)}
+
+/* KPI */
+.krow{display:grid;grid-template-columns:repeat(5,1fr);background:var(--surf);border-bottom:1px solid var(--bd);flex-shrink:0}
+.kc{padding:11px 12px;border-right:1px solid var(--bd);position:relative}
+.kc:last-child{border-right:none}
+.kc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.kc.ok::before{background:var(--grn)}.kc.warn::before{background:var(--amb)}
+.kc.danger::before{background:var(--dng)}.kc.nv::before{background:var(--navy)}
+.kl{font-size:9px;font-weight:700;letter-spacing:.04em;color:var(--muted);margin-bottom:3px}
+.kv{font-size:19px;font-weight:700;font-family:"IBM Plex Mono",monospace;color:var(--text);line-height:1}
+.kv.ok{color:var(--grn)}.kv.warn{color:var(--amb)}.kv.danger{color:var(--dng)}.kv.nv{color:var(--navy)}
+.ks{font-size:9px;color:var(--muted);margin-top:2px}
+
+/* PLAN TABS */
+.ptabs{display:flex;background:var(--surf);border-bottom:1px solid var(--bd);padding:0 12px;flex-shrink:0;overflow-x:auto}
+.pt{font-family:"Sarabun",sans-serif;font-size:11px;font-weight:600;padding:7px 12px;
+  border:none;background:transparent;cursor:pointer;color:var(--muted);
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap}
+.pt:hover{color:var(--navy)}
+.pt.on{color:var(--navy);border-bottom-color:var(--navy)}
+
+/* GANTT */
+.gscroll{height:500px;overflow-y:auto;overflow-x:auto;padding:12px;background:var(--bg)}
+.gcard{background:var(--surf);border:1px solid var(--bd);border-radius:8px;overflow:auto}
+.gt thead{position:sticky;top:0;z-index:5}
+table.gt{width:100%;border-collapse:collapse;font-size:11px;min-width:800px}
+.gt thead tr:first-child th{background:var(--navy);color:rgba(255,255,255,.85);
+  font-size:9px;font-weight:700;padding:6px 3px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.gt thead tr:first-child th.rh{background:#7C3200}
+.gt thead tr:first-child th.hh{background:#6B1A1A}
+.gt thead tr:first-child th.th{text-align:left;padding-left:10px;min-width:185px}
+.gt thead tr:nth-child(2) th{font-size:9px;font-weight:600;color:var(--sub);
+  padding:4px 3px;text-align:center;background:var(--surf2);
+  border-bottom:2px solid var(--bd);border-right:1px solid var(--bd)}
+.gt thead tr:nth-child(2) th.rs{background:var(--ambbg);color:var(--ambt)}
+.gt thead tr:nth-child(2) th.hs{background:var(--dngbg);color:var(--dngt)}
+.gt thead tr:nth-child(2) th.th{text-align:left;padding-left:10px}
+.gt tbody tr{border-bottom:1px solid var(--bd)}
+.gt tbody tr:hover td{background:rgba(43,45,142,.04)}
+html[data-theme="dark"] .gt tbody tr:hover td{background:rgba(74,78,204,.07)}
+.gt tbody tr.ph td{background:var(--surf2)}
+.phl{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--sub);padding:6px 10px;display:flex;align-items:center;gap:6px}
+.phd{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+td.tn{padding:5px 10px;font-size:11px;font-weight:500;color:var(--text);
+  border-right:1px solid var(--bd);vertical-align:middle;max-width:200px}
+td.to{padding:4px 6px;font-size:10px;color:var(--sub);border-right:1px solid var(--bd);vertical-align:middle;white-space:nowrap}
+td.wk{padding:2px;text-align:center;vertical-align:middle;
+  border-right:1px solid rgba(180,190,220,.3);height:32px;position:relative}
+td.wk.rc{background:var(--rn1)}
+td.wk.hc{background:var(--rn2)}
+
+/* BARS — DIRECT COLORS NO CSS VAR GRADIENTS */
+.bar{height:15px;border-radius:3px;margin:0 2px;position:relative;overflow:hidden}
+.bar.bA{background:#185FA5}
+.bar.bB{background:#0F6E56}
+.bar.bO{background:#2B2D8E}
+.bar.bR{background:#0369A1;border-top:2px dashed rgba(255,255,255,.45)}
+.bar.bS{background:#5B21B6}
+.bar.bC{background:#6B7280}
+html[data-theme="dark"] .bar.bA{background:#3B82F6}
+html[data-theme="dark"] .bar.bB{background:#10B981}
+html[data-theme="dark"] .bar.bO{background:#4A4ECC}
+html[data-theme="dark"] .bar.bR{background:#0EA5E9}
+html[data-theme="dark"] .bar.bS{background:#8B5CF6}
+html[data-theme="dark"] .bar.bC{background:#6B7280}
+.bar.ri{opacity:.65}
+.bar.hi{opacity:.45}
+.rstripe{position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(255,255,255,.2) 3px,rgba(255,255,255,.2) 4px)}
+.ms{width:11px;height:11px;border-radius:2px;transform:rotate(45deg);flex-shrink:0}
+.ms.pay{background:var(--red)}.ms.hold{background:var(--amb)}.ms.cert{background:var(--prp)}
+.mw{display:flex;align-items:center;justify-content:center;height:100%}
+.ptag{display:inline-flex;font-size:8px;font-weight:700;padding:1px 4px;border-radius:8px;
+  margin-left:3px;background:var(--grnbg);color:var(--grnt);border:1px solid var(--grn)}
+.tbdg{display:inline-block;font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px;margin-top:1px}
+.tbdg.r{background:var(--blubg);color:var(--blut)}
+.tbdg.g{background:var(--grnbg);color:var(--grnt)}
+.tbdg.p{background:var(--prpbg);color:var(--prp)}
+
+/* LEGEND */
+.leg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  padding:7px 12px;background:var(--surf);border-top:1px solid var(--bd);flex-shrink:0}
+.li{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--sub);font-weight:500}
+.lb{width:13px;height:9px;border-radius:2px;flex-shrink:0}
+.ld{width:9px;height:9px;border-radius:2px;transform:rotate(45deg);flex-shrink:0}
+.lrope{width:13px;height:9px;border-radius:2px;flex-shrink:0;background:#0369A1;border-top:2px dashed rgba(255,255,255,.5)}
+html[data-theme="dark"] .lrope{background:#0EA5E9}
+
+/* IMPACT */
+.imparea{background:var(--surf);border-top:1px solid var(--bd);padding:10px 12px;flex-shrink:0}
+.impt{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--sub);margin-bottom:8px}
+.impg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
+.ic{background:var(--surf2);border:1px solid var(--bd);border-left:3px solid;border-radius:6px;padding:8px 10px}
+.ic.h{border-left-color:var(--dng);background:var(--dngbg)}
+.ic.m{border-left-color:var(--amb);background:var(--ambbg)}
+.ic.l{border-left-color:var(--grn);background:var(--grnbg)}
+.ict{display:flex;justify-content:space-between;gap:4px;margin-bottom:3px;align-items:flex-start}
+.icn{font-size:11px;font-weight:600;color:var(--text);line-height:1.3}
+.icb{font-size:8px;font-weight:700;padding:2px 5px;border-radius:8px;white-space:nowrap;flex-shrink:0}
+.icb.h{background:var(--dngbg);color:var(--dngt);border:1px solid var(--dng)}
+.icb.m{background:var(--ambbg);color:var(--ambt);border:1px solid var(--amb)}
+.icb.l{background:var(--grnbg);color:var(--grnt);border:1px solid var(--grn)}
+.ico{font-size:10px;color:var(--sub);line-height:1.5}
+.icbar{height:2px;background:var(--bd);border-radius:2px;margin-top:6px}
+.icfill{height:100%;border-radius:2px;transition:width .4s}
+
+/* PAYMENT MODAL */
+.mbg{display:none;position:fixed;inset:0;background:rgba(10,12,30,.6);
+  z-index:500;align-items:center;justify-content:center;padding:14px}
+.mc{background:var(--surf);border-radius:10px;padding:18px;max-width:500px;width:100%}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mtt{font-size:13px;font-weight:700;color:var(--navy)}
+table.pt{width:100%;border-collapse:collapse;font-size:11px}
+table.pt th{background:var(--navy);color:rgba(255,255,255,.85);padding:6px 9px;text-align:left;font-size:10px}
+table.pt td{padding:6px 9px;border-bottom:1px solid var(--bd)}
+table.pt tr:last-child td{border-bottom:none}
+table.pt tr.tot td{background:var(--nvyl);font-weight:700}
+
+/* TOOLTIP */
+.tip{position:fixed;background:#1E2070;color:#fff;border-radius:7px;
+  padding:8px 11px;pointer-events:none;z-index:999;max-width:240px;
+  opacity:0;transition:opacity .12s;font-size:10px;line-height:1.5}
+.tip.on{opacity:1}
+.tit{font-weight:700;font-size:11px;margin-bottom:2px}
+
+/* FOOTER */
+.foot{padding:7px 12px;border-top:1px solid var(--bd);background:var(--surf);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;flex-shrink:0;font-size:9px;color:var(--muted)}
+.foot a{color:var(--navy);text-decoration:none;font-weight:600}
+
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
+@media(max-width:860px){.sb-col{display:none}.main{display:block}.krow{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <a class="logo-a" href="https://formacorps.com" target="_blank">
+      <div class="bars"><i></i><i></i><i></i></div>
+      <span class="wm">FORMA</span>
+    </a>
+    <div>
+      <div class="pjn" id="pjn">IDEO Sathorn Tha-Pra — Level 3 Schedule</div>
+      <div class="pjm" id="pjm">TOR 27 May 2026 · ฿15,600,000 · 2 อาคาร × 31 ชั้น</div>
+    </div>
+  </div>
+  <div class="tr no-print">
+    <span class="lpill"><span class="ldot"></span><span id="slive">LIVE</span></span>
+    <button class="btn" onclick="showPay()" id="spay">Payments</button>
+    <button class="btn" onclick="window.print()" id="sprint">พิมพ์</button>
+    <div class="no-print" style="display:flex;border:1px solid var(--bd);border-radius:6px;overflow:hidden">
+      <button id="fs" onclick="setFont('s')" style="font-family:Sarabun,sans-serif;font-size:10px;font-weight:700;padding:4px 8px;border:none;border-right:1px solid var(--bd);background:var(--surf);color:var(--sub);cursor:pointer">S</button>
+      <button id="fm" onclick="setFont('m')" style="font-family:Sarabun,sans-serif;font-size:10px;font-weight:700;padding:4px 8px;border:none;border-right:1px solid var(--bd);background:var(--navy);color:#fff;cursor:pointer">M</button>
+      <button id="fl" onclick="setFont('l')" style="font-family:Sarabun,sans-serif;font-size:10px;font-weight:700;padding:4px 8px;border:none;background:var(--surf);color:var(--sub);cursor:pointer">L</button>
+    </div><button class="btn ico" onclick="toggleLang()" id="slang">TH</button>
+    <button class="btn ico" onclick="toggleTheme()" id="stheme">☀️</button>
+    <button class="btn p" onclick="resetAll()" id="sreset">↺ รีเซ็ต</button>
+  </div>
+</div>
+
+<div class="main">
+<div class="sb-col no-print">
+  <div class="sg">
+    <div class="sgt" id="s-tor">ข้อกำหนด TOR สำคัญ</div>
+    <div class="tbox w"><b id="t1h">&#9201; Working Hours (TOR 10.4)</b><span id="t1b">Mon&ndash;Fri 09:00&ndash;16:00 only</span></div>
+    <div class="tbox w"><b id="t2h">&#128176; Late Penalty (TOR 11.2)</b><span id="t2b">0.10%/day = &#3647;15,600/day</span></div>
+    <div class="tbox ok"><b id="t3h">&#9989; Plan A: Top-Down</b><span id="t3b">Rope F31&rarr;F16 &middot; Gondola F15&rarr;G</span></div>
+  </div>
+  <div class="sg">
+    <div class="sgt" id="s-start">วันเริ่มงาน</div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-sm">เดือนเริ่ม</span><span class="civ" id="v-start">มิ.ย. 2569</span></div>
+    <input type="range" id="r-start" min="0" max="5" value="0" oninput="recalc()"></div>
+  </div>
+  <div class="sg">
+    <div class="sgt" id="s-wf">กำลังพล</div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-crew">ทีมช่าง</span><span class="civ" id="v-crew">100%</span></div>
+    <div class="cih" id="s-crewh">% ช่างที่มีจริงบนไซต์</div>
+    <input type="range" id="r-crew" min="40" max="100" value="100" step="10" oninput="recalc()"></div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-rope">Rope Access</span><span class="civ" id="v-rope">8 คน</span></div>
+    <div class="cih">Spider man F16–F31</div>
+    <input type="range" id="r-rope" min="4" max="8" value="8" step="1" oninput="recalc()"></div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-gond">กระเช้า</span><span class="civ" id="v-gond">4 ตัว</span></div>
+    <div class="cih">6m×2 + 4m×2</div>
+    <input type="range" id="r-gond" min="2" max="4" value="4" step="1" oninput="recalc()"></div>
+  </div>
+  <div class="sg">
+    <div class="sgt" id="s-rain">☔ ฤดูฝน</div>
+    <div class="cih" id="s-rainh" style="margin-bottom:7px">กด 1 ครั้ง = ฝนกลาง · 2 ครั้ง = ฝนหนัก</div>
+    <div class="mgrid" id="mgrid"></div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-rl">ประสิทธิภาพลด</span><span class="civ" id="v-rl">18%</span></div>
+    <input type="range" id="r-rl" min="5" max="50" value="18" step="1" oninput="recalc()"></div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-sw">วันหยุดฝนหนัก</span><span class="civ" id="v-sw">2 วัน/สปด.</span></div>
+    <input type="range" id="r-sw" min="0" max="5" value="2" step="1" oninput="recalc()"></div>
+  </div>
+  <div class="sg">
+    <div class="sgt" id="s-risk">ปัจจัยเสี่ยง</div>
+    <div id="fwrap"></div>
+  </div>
+  <div class="sg">
+    <div class="sgt" id="s-mat">วัสดุ & เข้าพื้นที่</div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-sk">Lead time Sika</span><span class="civ" id="v-sk">7 วัน</span></div>
+    <input type="range" id="r-sk" min="3" max="21" value="7" step="1" oninput="recalc()"></div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-pt">Lead time TOA</span><span class="civ" id="v-pt">5 วัน</span></div>
+    <input type="range" id="r-pt" min="2" max="14" value="5" step="1" oninput="recalc()"></div>
+    <div class="ci"><div class="cit"><span class="cil" id="s-ac">เข้าพื้นที่</span><span class="civ" id="v-ac">ปกติ</span></div>
+    <input type="range" id="r-ac" min="0" max="2" value="0" step="1" oninput="recalc()"></div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="krow">
+    <div class="kc nv"><div class="kl" id="k1l">Duration</div><div class="kv nv" id="k1v">17 สปด.</div><div class="ks" id="k1s">Jun &rarr; Oct 2026</div></div>
+    <div class="kc warn"><div class="kl" id="k2l">Rain Weeks</div><div class="kv warn" id="k2v">11 สปด.</div><div class="ks" id="k2s">6 heavy &middot; 5 moderate</div></div>
+    <div class="kc"><div class="kl" id="k3l">Est. Days Lost</div><div class="kv" id="k3v">~19 วัน</div><div class="ks" id="k3s">รวมทุกปัจจัย</div></div>
+    <div class="kc ok"><div class="kl" id="k4l">Schedule Risk</div><div class="kv ok" id="k4v">LOW</div><div class="ks" id="k4s">2-wk buffer intact</div></div>
+    <div class="kc ok"><div class="kl" id="k5l">Forecast</div><div class="kv ok" id="k5v">ต.ค. 2569</div><div class="ks" id="k5s">Within contract</div></div>
+  </div>
+  <div class="ptabs no-print">
+    <button class="pt on" onclick="switchPlan('A',this)" id="ptA">Plan A &mdash; Top-Down &#9989;</button>
+    <button class="pt" onclick="switchPlan('B',this)" id="ptB">Plan B &mdash; Bottom-Up</button>
+    <button class="pt" onclick="switchPlan('C',this)" id="ptC">Plan C &mdash; Full Parallel</button>
+  </div>
+  <div class="gscroll"><div class="gcard"><div id="gi"></div></div></div>
+  <div class="leg">
+    <div class="li"><div class="lb" style="background:#185FA5"></div><span id="la">อาคาร A</span></div>
+    <div class="li"><div class="lb" style="background:#0F6E56"></div><span id="lb">อาคาร B</span></div>
+    <div class="li"><div class="lrope"></div><span id="lr">Rope F16–F31</span></div>
+    <div class="li"><div class="lb" style="background:#2B2D8E"></div><span id="lo">ทั้ง 2 อาคาร</span></div>
+    <div class="li"><div class="lb" style="background:#5B21B6"></div><span id="ls">สำรวจ/Drone</span></div>
+    <div class="li"><div class="lb" style="background:#6B7280"></div><span id="lc">ปิดงาน</span></div>
+    <div class="li"><div class="ld" style="background:var(--red)"></div><span id="lp">ชำระเงิน</span></div>
+    <div class="li"><div class="ld" style="background:var(--amb)"></div><span id="lh">Hold Point</span></div>
+    <div class="li"><div class="lb" style="background:var(--ambbg);border:1px solid var(--amb)"></div><span id="lrn">ฝนกลาง</span></div>
+    <div class="li"><div class="lb" style="background:var(--dngbg);border:1px solid var(--dng)"></div><span id="lhv">ฝนหนัก</span></div>
+  </div>
+  <div class="imparea no-print"><div class="impt" id="impt">Constraint Impact Summary</div><div class="impg" id="impg"></div></div>
+  <div class="foot">
+    <span><a href="https://formacorps.com" target="_blank">Forma Corporations</a> · PE ภย 59410 · TOR 27 พ.ค. 2569</span>
+    <span id="fwarn" style="color:var(--amb);font-weight:600">&#9888; PRELIMINARY &mdash; CLIENT USE ONLY</span>
+  </div>
+</div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="mbg" id="pmodal" onclick="if(event.target===this)closePay()">
+  <div class="mc">
+    <div class="mh"><span class="mtt" id="mtt">Payment Schedule (TOR Article 16)</span><button class="btn" onclick="closePay()">✕</button></div>
+    <table class="pt">
+      <thead><tr><th id="ph1">งวด</th><th id="ph2">เงื่อนไข</th><th>%</th><th id="ph3">จำนวนเงิน</th><th id="ph4">เครดิต</th></tr></thead>
+      <tbody id="ptbody">
+        <tr><td id="p1n">งวด 1</td><td id="p1c">ดำเนินการ 20% เสร็จ</td><td>20%</td><td>฿3,120,000</td><td>30 วัน</td></tr>
+        <tr><td id="p2n">งวด 2</td><td id="p2c">ดำเนินการ 50% เสร็จ</td><td>30%</td><td>฿4,680,000</td><td>30 วัน</td></tr>
+        <tr><td id="p3n">งวด 3</td><td id="p3c">ดำเนินการ 80% เสร็จ</td><td>25%</td><td>฿3,900,000</td><td>30 วัน</td></tr>
+        <tr><td id="p4n">งวด 4</td><td id="p4c">100% + รับประกัน</td><td>20%</td><td>฿3,120,000</td><td>30 วัน</td></tr>
+        <tr style="background:var(--ambbg)"><td id="p5n">งวด 5</td><td id="p5c">ประกันผลงาน 5 ปี</td><td>5%</td><td>฿780,000</td><td>—</td></tr>
+        <tr class="tot"><td colspan="2" id="ptot">รวม</td><td>100%</td><td>฿15,600,000</td><td></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:8px;font-size:10px;color:var(--dng)" id="mpen">⚠ ค่าปรับ 0.10%/วัน = ฿15,600/วัน ถ้าส่งงานช้า (TOR 11.2)</div>
+    <div style="margin-top:3px;font-size:10px;color:var(--sub)" id="mwarr">รับประกันรอยร้าว 2 ปี · น้ำรั่ว 5 ปี (TOR 12)</div>
+  </div>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+var L='en', TH='light', PLAN='A';
+var RM={6:1,7:1,8:2,9:2,10:1,11:0};
+var FD=[
+  {id:'f1',th:'\u0E1E\u0E1A\u0E04\u0E27\u0E32\u0E21\u0E40\u0E2A\u0E35\u0E22\u0E2B\u0E32\u0E22\u0E0B\u0E48\u0E2D\u0E19',en:'Hidden damage',dth:'\u0E44\u0E21\u0E48\u0E2D\u0E22\u0E39\u0E48\u0E43\u0E19 Damage List',den:'Not in Damage List',days:5,lv:'H',on:false},
+  {id:'f2',th:'\u0E25\u0E48\u0E32\u0E0A\u0E49\u0E32\u0E08\u0E32\u0E01\u0E2B\u0E19\u0E48\u0E27\u0E22\u0E07\u0E32\u0E19',en:'Permit delay',dth:'BMA/\u0E19\u0E34\u0E15\u0E34\u0E1A\u0E38\u0E04\u0E04\u0E25 \u2013 \u0E43\u0E1A\u0E2D\u0E19\u0E38\u0E0D\u0E32\u0E15\u0E25\u0E48\u0E32\u0E0A\u0E49\u0E32',den:'BMA gondola permit delay',days:7,lv:'H',on:false},
+  {id:'f3',th:'\u0E27\u0E31\u0E2A\u0E14\u0E38 Sika \u0E2B\u0E32\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49',en:'Sika out of stock',dth:'Sikaflex \u0E2B\u0E21\u0E14 \u2013 \u0E23\u0E2D supplier',den:'Supplier lead time extended',days:4,lv:'M',on:false},
+  {id:'f4',th:'\u0E0A\u0E48\u0E32\u0E07\u0E02\u0E32\u0E14\u0E07\u0E32\u0E19/\u0E1B\u0E48\u0E27\u0E22',en:'Labour absence',dth:'\u0E0A\u0E48\u0E32\u0E07\u0E02\u0E32\u0E14\u0E40\u0E01\u0E34\u0E19 10%',den:'>10% crew absent',days:3,lv:'M',on:false},
+  {id:'f5',th:'\u0E25\u0E39\u0E01\u0E04\u0E49\u0E32\u0E2A\u0E31\u0E48\u0E07\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19 scope',en:'Client VO change',dth:'Variation Order \u0E01\u0E25\u0E32\u0E07\u0E42\u0E04\u0E23\u0E07\u0E01\u0E32\u0E23',den:'VO requested mid-project',days:6,lv:'M',on:false},
+  {id:'f6',th:'\u0E1E\u0E32\u0E22\u0E38\u0E1D\u0E19\u0E1F\u0E49\u0E32\u0E04\u0E30\u0E19\u0E2D\u0E07',en:'Lightning season',dth:'\u0E2A.\u0E04.\u2013\u0E01.\u0E22. \u0E01\u0E23\u0E30\u0E40\u0E0A\u0E49\u0E32\u0E15\u0E49\u0E2D\u0E07\u0E25\u0E07\u0E17\u0E31\u0E19\u0E17\u0E35',den:'Aug\u2013Sep gondola must descend',days:3,lv:'H',on:false},
+  {id:'f7',th:'\u0E04\u0E27\u0E32\u0E21\u0E0A\u0E37\u0E49\u0E19\u0E2A\u0E39\u0E07 \u0E17\u0E32\u0E2A\u0E35\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49',en:'Humidity paint hold',dth:'RH>85% \u0E1E\u0E31\u0E01\u0E07\u0E32\u0E19\u0E17\u0E32\u0E2A\u0E35 TOA',den:'RH>85% painting suspended',days:4,lv:'M',on:false},
+  {id:'f8',th:'\u0E23\u0E49\u0E2D\u0E07\u0E40\u0E23\u0E35\u0E22\u0E19\u0E1C\u0E39\u0E49\u0E2D\u0E22\u0E39\u0E48\u0E2D\u0E32\u0E28\u0E31\u0E22',en:'Resident complaint',dth:'\u0E19\u0E34\u0E15\u0E34\u0E1A\u0E38\u0E04\u0E04\u0E25\u0E08\u0E33\u0E01\u0E31\u0E14\u0E40\u0E27\u0E25\u0E32',den:'Juristic restricts hours',days:2,lv:'L',on:false}
+];
+var FS={};
+FD.forEach(function(f){FS[f.id]=f.on;});
+
+var TXT={
+  th:{
+    starts:['\u0E21\u0E34.\u0E22. 2569','\u0E01.\u0E04. 2569','\u0E2A.\u0E04. 2569','\u0E01.\u0E22. 2569','\u0E15.\u0E04. 2569','\u0E1E.\u0E22. 2569'],
+    mo:['\u0E21.\u0E04.','\u0E01.\u0E1E.','\u0E21\u0E35.\u0E04.','\u0E40\u0E21.\u0E22.','\u0E1E.\u0E04.','\u0E21\u0E34.\u0E22.','\u0E01.\u0E04.','\u0E2A.\u0E04.','\u0E01.\u0E22.','\u0E15.\u0E04.','\u0E1E.\u0E22.','\u0E18.\u0E04.'],
+    ml:[{n:'\u0E21\u0E34.\u0E22.',m:6},{n:'\u0E01.\u0E04.',m:7},{n:'\u0E2A.\u0E04.',m:8},{n:'\u0E01.\u0E22.',m:9},{n:'\u0E15.\u0E04.',m:10},{n:'\u0E1E.\u0E22.',m:11}],
+    wu:'\u0E2A\u0E1B\u0E14.',du:'\u0E27\u0E31\u0E19',pu:'%',
+    alo:['\u0E1B\u0E01\u0E15\u0E34','\u0E27\u0E31\u0E19\u0E18\u0E23\u0E23\u0E21\u0E14\u0E32\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19','09\u201316\u0E19. \u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19'],
+    risk:['\u0E15\u0E48\u0E33','\u0E1B\u0E32\u0E19\u0E01\u0E25\u0E32\u0E07','\u0E2A\u0E39\u0E07'],
+    rsub:['Buffer 2 \u0E2A\u0E1B\u0E14. \u0E04\u0E07\u0E2D\u0E22\u0E39\u0E48','\u0E15\u0E34\u0E14\u0E15\u0E32\u0E21\u0E23\u0E32\u0E22\u0E2A\u0E31\u0E1B\u0E14\u0E32\u0E2B\u0E4C','\u0E40\u0E15\u0E23\u0E35\u0E22\u0E21\u0E02\u0E2D\u0E02\u0E22\u0E32\u0E22\u0E40\u0E27\u0E25\u0E32'],
+    eok:'\u0E15\u0E32\u0E21\u0E2A\u0E31\u0E0D\u0E0D\u0E32',ew:'\u0E2D\u0E32\u0E08\u0E25\u0E48\u0E32\u0E0A\u0E49\u0E32!',
+    hi:'\u0E2A\u0E39\u0E07',mi:'\u0E01\u0E25\u0E32\u0E07',lo:'\u0E15\u0E48\u0E33',
+    p0:'\u0E23\u0E30\u0E22\u0E30\u0E17\u0E35\u0E48 0 \u2014 \u0E40\u0E15\u0E23\u0E35\u0E22\u0E21\u0E01\u0E32\u0E23\u0E41\u0E25\u0E30\u0E2A\u0E33\u0E23\u0E27\u0E08',
+    p1A:'\u0E23\u0E30\u0E22\u0E30\u0E17\u0E35\u0E48 1 \u2014 \u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 \u0E1A\u0E19\u0E25\u0E07\u0E25\u0E48\u0E32\u0E07 (\u0E41\u0E1C\u0E19 A)',
+    p2A:'\u0E23\u0E30\u0E22\u0E30\u0E17\u0E35\u0E48 2 \u2014 \u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 \u0E40\u0E23\u0E34\u0E48\u0E21\u0E02\u0E19\u0E32\u0E19 \u0E2A\u0E1B\u0E14. 5',
+    p1B:'\u0E23\u0E30\u0E22\u0E30\u0E17\u0E35\u0E48 1 \u2014 \u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 \u0E25\u0E48\u0E32\u0E07\u0E02\u0E36\u0E49\u0E19\u0E1A\u0E19 (\u0E41\u0E1C\u0E19 B \u26A0)',
+    p2B:'\u0E23\u0E30\u0E22\u0E30\u0E17\u0E35\u0E48 2 \u2014 \u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 \u0E25\u0E48\u0E32\u0E07\u0E02\u0E36\u0E49\u0E19\u0E1A\u0E19',
+    p1C:'\u0E23\u0E30\u0E22\u0E30\u0E17\u0E35\u0E48 1 \u2014 \u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23 \u0E1E\u0E23\u0E49\u0E2D\u0E21\u0E01\u0E31\u0E19 (\u0E41\u0E1C\u0E19 C)',
+    p3:'\u0E23\u0E30\u0E22\u0E30\u0E17\u0E35\u0E48 3 \u2014 \u0E07\u0E32\u0E19\u0E1E\u0E34\u0E40\u0E28\u0E29 + \u0E1B\u0E34\u0E14\u0E42\u0E04\u0E23\u0E07\u0E01\u0E32\u0E23',
+    pjn:'\u0E15\u0E32\u0E23\u0E32\u0E07\u0E07\u0E32\u0E19 \u0E44\u0E2D\u0E14\u0E35\u0E42\u0E2D \u0E2A\u0E32\u0E17\u0E23 \u0E17\u0E48\u0E32\u0E1E\u0E23\u0E30',
+    pjm:'TOR 27 \u0E1E.\u0E04. 2569 \u00B7 \u0E3F15,600,000 \u00B7 2 \u0E2D\u0E32\u0E04\u0E32\u0E23 \u00D7 31 \u0E0A\u0E31\u0E49\u0E19',
+    live:'\u0E40\u0E2D\u0E01\u0E2A\u0E32\u0E23\u0E2A\u0E14',pay:'\u0E07\u0E27\u0E14\u0E40\u0E07\u0E34\u0E19',prn:'\u0E1E\u0E34\u0E21\u0E1E\u0E4C',rst:'\u21BA \u0E23\u0E35\u0E40\u0E0B\u0E47\u0E15',
+    bR:'\uD83E\uDDD7 Rope',bG:'\uD83C\uDFD7 Gondola',bS:'\uD83D\uDE81 Survey',bO:'\uD83D\uDD27 \u0E17\u0E31\u0E49\u0E07\u0E04\u0E39\u0E48',
+    imptit:'\u0E2A\u0E23\u0E38\u0E1B\u0E1C\u0E25\u0E01\u0E23\u0E30\u0E17\u0E1A',
+    rn:'\u0E2D\u0E32\u0E04\u0E32\u0E23 A',rb:'\u0E2D\u0E32\u0E04\u0E32\u0E23 B',rr:'Rope F16\u2013F31',ro:'\u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23',rs:'\u0E2A\u0E33\u0E23\u0E27\u0E08/Drone',
+    rc:'\u0E1B\u0E34\u0E14\u0E07\u0E32\u0E19',rp:'\u0E0A\u0E33\u0E23\u0E30\u0E40\u0E07\u0E34\u0E19',rh:'Hold Point',rrn:'\u0E1D\u0E19\u0E01\u0E25\u0E32\u0E07',rhv:'\u0E1D\u0E19\u0E2B\u0E19\u0E31\u0E01'
+  },
+  en:{
+    starts:['Jun 2026','Jul 2026','Aug 2026','Sep 2026','Oct 2026','Nov 2026'],
+    mo:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    ml:[{n:'Jun',m:6},{n:'Jul',m:7},{n:'Aug',m:8},{n:'Sep',m:9},{n:'Oct',m:10},{n:'Nov',m:11}],
+    wu:'wks',du:'days',pu:'%',
+    alo:['None','Weekdays only','09\u201316h only'],
+    risk:['LOW','MED','HIGH'],
+    rsub:['2-wk buffer intact','Monitor weekly','Prep time extension VO'],
+    eok:'Within contract',ew:'Possible slip!',
+    hi:'HIGH',mi:'MED',lo:'LOW',
+    p0:'Phase 0 \u2014 Mobilization & Survey',
+    p1A:'Phase 1 \u2014 Bldg A \u00B7 Top-Down (Plan A)',
+    p2A:'Phase 2 \u2014 Bldg B \u00B7 Parallel Start W5',
+    p1B:'Phase 1 \u2014 Bldg A \u00B7 Bottom-Up (Plan B \u26A0)',
+    p2B:'Phase 2 \u2014 Bldg B \u00B7 Bottom-Up',
+    p1C:'Phase 1 \u2014 Both Bldgs Simultaneous (Plan C)',
+    p3:'Phase 3 \u2014 Special Works + Closeout',
+    pjn:'IDEO Sathorn Tha-Pra \u2014 Level 3 Schedule',
+    pjm:'TOR 27 May 2026 \u00B7 \u0E3F15,600,000 \u00B7 2 Buildings \u00D7 31 Floors',
+    live:'LIVE',pay:'Payments',prn:'Print',rst:'\u21BA Reset',
+    bR:'\uD83E\uDDD7 Rope',bG:'\uD83C\uDFD7 Gondola',bS:'\uD83D\uDE81 Survey',bO:'\uD83D\uDD27 Both',
+    imptit:'Constraint Impact',
+    rn:'Building A',rb:'Building B',rr:'Rope F16\u2013F31',ro:'Both Bldgs',rs:'Survey/Drone',
+    rc:'Closeout',rp:'Payment',rh:'Hold Point',rrn:'Moderate Rain',rhv:'Heavy Rain'
+  }
+};
+
+function setFont(s){
+  document.documentElement.setAttribute('data-font',s);
+  ['fs','fm','fl'].forEach(function(id,i){
+    var el=document.getElementById(id);
+    if(el){el.style.background=['s','m','l'][i]===s?'var(--navy)':'var(--surf)';
+    el.style.color=['s','m','l'][i]===s?'#fff':'var(--sub)';}
+  });
+}
+function toggleTheme(){
+  TH=TH==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme',TH);
+  document.getElementById('stheme').textContent=TH==='dark'?'\uD83C\uDF19':'\u2600\uFE0F';
+}
+function toggleLang(){
+  L=L==='th'?'en':'th';
+  document.getElementById('slang').textContent=L==='th'?'TH':'EN';
+  applyLang();
+  buildMonths();
+  buildFactors();
+  recalc();
+}
+function applyLang(){
+  var isEN=(L==='en');
+  document.getElementById('pjn').textContent=isEN?'IDEO Sathorn Tha-Pra \u2014 Level 3 Schedule':'\u0E15\u0E32\u0E23\u0E32\u0E07\u0E07\u0E32\u0E19 \u0E44\u0E2D\u0E14\u0E35\u0E42\u0E2D \u0E2A\u0E32\u0E17\u0E23 \u0E17\u0E48\u0E32\u0E1E\u0E23\u0E30';
+  document.getElementById('pjm').textContent=isEN?'TOR 27 May 2026 \u00B7 \u0E3F15,600,000 \u00B7 2 Buildings \u00D7 31 Floors':'TOR 27 \u0E1E.\u0E04. 2569 \u00B7 \u0E3F15,600,000 \u00B7 2 \u0E2D\u0E32\u0E04\u0E32\u0E23 \u00D7 31 \u0E0A\u0E31\u0E49\u0E19';
+  document.getElementById('slive').textContent=isEN?'LIVE':'\u0E40\u0E2D\u0E01\u0E2A\u0E32\u0E23\u0E2A\u0E14';
+  document.getElementById('spay').textContent=isEN?'Payments':'\u0E07\u0E27\u0E14\u0E40\u0E07\u0E34\u0E19';
+  document.getElementById('sprint').textContent=isEN?'Print':'\u0E1E\u0E34\u0E21\u0E1E\u0E4C';
+  document.getElementById('sreset').textContent=isEN?'\u21BA Reset':'\u21BA \u0E23\u0E35\u0E40\u0E0B\u0E47\u0E15';
+  document.getElementById('impt').textContent=isEN?'Constraint Impact':'\u0E2A\u0E23\u0E38\u0E1B\u0E1C\u0E25\u0E01\u0E23\u0E30\u0E17\u0E1A';
+  document.getElementById('k1l').textContent=isEN?'Duration':'\u0E23\u0E30\u0E22\u0E30\u0E40\u0E27\u0E25\u0E32';
+  document.getElementById('k2l').textContent=isEN?'Rain Weeks':'\u0E2A\u0E31\u0E1B\u0E14\u0E32\u0E2B\u0E4C\u0E1D\u0E19';
+  document.getElementById('k3l').textContent=isEN?'Days Lost':'\u0E27\u0E31\u0E19\u0E2A\u0E39\u0E0D\u0E40\u0E2A\u0E35\u0E22';
+  document.getElementById('k4l').textContent=isEN?'Risk':'\u0E04\u0E27\u0E32\u0E21\u0E40\u0E2A\u0E35\u0E48\u0E22\u0E07';
+  document.getElementById('k5l').textContent=isEN?'Forecast':'\u0E41\u0E25\u0E49\u0E27\u0E40\u0E2A\u0E23\u0E47\u0E08';
+  document.getElementById('mtt').textContent=isEN?'Payment Schedule (TOR 16)':'\u0E07\u0E27\u0E14\u0E01\u0E32\u0E23\u0E0A\u0E33\u0E23\u0E30\u0E40\u0E07\u0E34\u0E19 (TOR 16)';
+  document.getElementById('t1h').textContent=isEN?'\u23F1 Working Hours (TOR 10.4)':'\u23F1 \u0E40\u0E27\u0E25\u0E32\u0E17\u0E33\u0E07\u0E32\u0E19 (TOR 10.4)';
+  document.getElementById('t1b').textContent=isEN?'Mon\u2013Fri 09:00\u201316:00 only':'\u0E08.\u2013\u0E28. 09:00\u201316:00 \u0E19. \u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19';
+  document.getElementById('t2h').textContent=isEN?'\uD83D\uDCB0 Penalty (TOR 11.2)':'\uD83D\uDCB0 \u0E04\u0E48\u0E32\u0E1B\u0E23\u0E31\u0E1A (TOR 11.2)';
+  document.getElementById('t2b').textContent=isEN?'0.10%/day = \u0E3F15,600/day':'0.10%/\u0E27\u0E31\u0E19 = \u0E3F15,600/\u0E27\u0E31\u0E19';
+  document.getElementById('t3h').textContent=isEN?'\u2705 Plan A: Top-Down':'\u2705 \u0E41\u0E1C\u0E19 A: \u0E1A\u0E19\u0E25\u0E07\u0E25\u0E48\u0E32\u0E07';
+  document.getElementById('t3b').textContent=isEN?'Rope F31\u2192F16 \u00B7 Gondola F15\u2192G':'Rope F31\u2192F16 \u0E01\u0E48\u0E2D\u0E19 \u00B7 Gondola F15\u2192G';
+  document.getElementById('s-tor').textContent=isEN?'Key TOR Requirements':'\u0E02\u0E49\u0E2D\u0E01\u0E33\u0E2B\u0E19\u0E14 TOR \u0E2A\u0E33\u0E04\u0E31\u0E0D';
+  document.getElementById('s-start').textContent=isEN?'Project Start':'\u0E27\u0E31\u0E19\u0E40\u0E23\u0E34\u0E48\u0E21\u0E07\u0E32\u0E19';
+  document.getElementById('s-sm').textContent=isEN?'Start Month':'\u0E40\u0E14\u0E37\u0E2D\u0E19\u0E40\u0E23\u0E34\u0E48\u0E21';
+  document.getElementById('s-wf').textContent=isEN?'Workforce':'\u0E01\u0E33\u0E25\u0E31\u0E07\u0E1E\u0E25';
+  document.getElementById('s-crew').textContent=isEN?'Crew Size':'\u0E17\u0E35\u0E21\u0E0A\u0E48\u0E32\u0E07';
+  document.getElementById('s-rope').textContent=isEN?'Rope Access':'Rope Access';
+  document.getElementById('s-gond').textContent=isEN?'Gondola Units':'\u0E01\u0E23\u0E30\u0E40\u0E0A\u0E49\u0E32';
+  document.getElementById('s-rain').textContent=isEN?'\u2614 Monsoon':'\u2614 \u0E24\u0E14\u0E39\u0E1D\u0E19';
+  document.getElementById('s-rl').textContent=isEN?'Rain Loss %':'\u0E1B\u0E23\u0E30\u0E2A\u0E34\u0E17\u0E18\u0E34\u0E20\u0E32\u0E1E\u0E25\u0E14';
+  document.getElementById('s-sw').textContent=isEN?'Stop-Work Days':'\u0E27\u0E31\u0E19\u0E2B\u0E22\u0E38\u0E14\u0E1D\u0E19\u0E2B\u0E19\u0E31\u0E01';
+  document.getElementById('s-risk').textContent=isEN?'Risk Factors':'\u0E1B\u0E31\u0E08\u0E08\u0E31\u0E22\u0E40\u0E2A\u0E35\u0E48\u0E22\u0E07';
+  document.getElementById('s-mat').textContent=isEN?'Materials & Access':'\u0E27\u0E31\u0E2A\u0E14\u0E38 & \u0E40\u0E02\u0E49\u0E32\u0E1E\u0E37\u0E49\u0E19\u0E17\u0E35\u0E48';
+  document.getElementById('s-sk').textContent=isEN?'Sika Lead Time':'Lead time Sika';
+  document.getElementById('s-pt').textContent=isEN?'TOA Lead Time':'Lead time TOA';
+  document.getElementById('s-ac').textContent=isEN?'Site Access':'\u0E40\u0E02\u0E49\u0E32\u0E1E\u0E37\u0E49\u0E19\u0E17\u0E35\u0E48';
+  document.getElementById('la').textContent=isEN?'Building A':'\u0E2D\u0E32\u0E04\u0E32\u0E23 A';
+  document.getElementById('lb').textContent=isEN?'Building B':'\u0E2D\u0E32\u0E04\u0E32\u0E23 B';
+  document.getElementById('lr').textContent=isEN?'Rope F16\u2013F31':'Rope F16\u2013F31';
+  document.getElementById('lo').textContent=isEN?'Both Buildings':'\u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23';
+  document.getElementById('ls').textContent=isEN?'Survey/Drone':'\u0E2A\u0E33\u0E23\u0E27\u0E08/Drone';
+  document.getElementById('lc').textContent=isEN?'Closeout':'\u0E1B\u0E34\u0E14\u0E07\u0E32\u0E19';
+  document.getElementById('lp').textContent=isEN?'Payment':'\u0E0A\u0E33\u0E23\u0E30\u0E40\u0E07\u0E34\u0E19';
+  document.getElementById('lh').textContent=isEN?'Hold Point':'Hold Point';
+  document.getElementById('lrn').textContent=isEN?'Moderate Rain':'\u0E1D\u0E19\u0E01\u0E25\u0E32\u0E07';
+  document.getElementById('lhv').textContent=isEN?'Heavy Rain':'\u0E1D\u0E19\u0E2B\u0E19\u0E31\u0E01';
+  document.getElementById('fwarn').textContent=isEN?'\u26A0 PRELIMINARY \u2014 CLIENT USE ONLY':'\u26A0 \u0E40\u0E2D\u0E01\u0E2A\u0E32\u0E23\u0E40\u0E1A\u0E37\u0E49\u0E2D\u0E07\u0E15\u0E49\u0E19 \u00B7 \u0E2A\u0E33\u0E2B\u0E23\u0E31\u0E1A\u0E25\u0E39\u0E01\u0E04\u0E49\u0E32\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19';
+  document.getElementById('ptA').textContent=isEN?'Plan A \u2014 Top-Down \u2705':'\u0E41\u0E1C\u0E19 A \u2014 \u0E1A\u0E19\u0E25\u0E07\u0E25\u0E48\u0E32\u0E07 \u2705';
+  document.getElementById('ptB').textContent=isEN?'Plan B \u2014 Bottom-Up':'\u0E41\u0E1C\u0E19 B \u2014 \u0E25\u0E48\u0E32\u0E07\u0E02\u0E36\u0E49\u0E19\u0E1A\u0E19';
+  document.getElementById('ptC').textContent=isEN?'Plan C \u2014 Full Parallel':'\u0E41\u0E1C\u0E19 C \u2014 \u0E02\u0E19\u0E32\u0E19\u0E17\u0E31\u0E49\u0E07\u0E04\u0E39\u0E48';
+  document.getElementById('ph1').textContent=isEN?'Item':'\u0E07\u0E27\u0E14';
+  document.getElementById('ph2').textContent=isEN?'Condition':'\u0E40\u0E07\u0E37\u0E48\u0E2D\u0E19\u0E44\u0E02';
+  document.getElementById('ph3').textContent=isEN?'Amount':'\u0E08\u0E33\u0E19\u0E27\u0E19\u0E40\u0E07\u0E34\u0E19';
+  document.getElementById('ph4').textContent=isEN?'Credit':'\u0E40\u0E04\u0E23\u0E14\u0E34\u0E15';
+  document.getElementById('p1n').textContent=isEN?'P1':'\u0E07\u0E27\u0E14 1';
+  document.getElementById('p1c').textContent=isEN?'20% complete':'\u0E14\u0E33\u0E40\u0E19\u0E34\u0E19\u0E01\u0E32\u0E23 20% \u0E40\u0E2A\u0E23\u0E47\u0E08';
+  document.getElementById('p2n').textContent=isEN?'P2':'\u0E07\u0E27\u0E14 2';
+  document.getElementById('p2c').textContent=isEN?'50% complete':'\u0E14\u0E33\u0E40\u0E19\u0E34\u0E19\u0E01\u0E32\u0E23 50% \u0E40\u0E2A\u0E23\u0E47\u0E08';
+  document.getElementById('p3n').textContent=isEN?'P3':'\u0E07\u0E27\u0E14 3';
+  document.getElementById('p3c').textContent=isEN?'80% complete':'\u0E14\u0E33\u0E40\u0E19\u0E34\u0E19\u0E01\u0E32\u0E23 80% \u0E40\u0E2A\u0E23\u0E47\u0E08';
+  document.getElementById('p4n').textContent=isEN?'P4':'\u0E07\u0E27\u0E14 4';
+  document.getElementById('p4c').textContent=isEN?'100% + warranty':'100% + \u0E23\u0E31\u0E1A\u0E1B\u0E23\u0E30\u0E01\u0E31\u0E19';
+  document.getElementById('p5n').textContent=isEN?'P5':'\u0E07\u0E27\u0E14 5';
+  document.getElementById('p5c').textContent=isEN?'5-yr bond':'\u0E1B\u0E23\u0E30\u0E01\u0E31\u0E19\u0E1C\u0E25\u0E07\u0E32\u0E19 5 \u0E1B\u0E35';
+  document.getElementById('ptot').textContent=isEN?'Total':'\u0E23\u0E27\u0E21';
+  document.getElementById('mpen').textContent=isEN?'\u26A0 Penalty 0.10%/day = \u0E3F15,600/day (TOR 11.2)':'\u26A0 \u0E04\u0E48\u0E32\u0E1B\u0E23\u0E31\u0E1A 0.10%/\u0E27\u0E31\u0E19 = \u0E3F15,600/\u0E27\u0E31\u0E19 \u0E16\u0E49\u0E32\u0E2A\u0E48\u0E07\u0E07\u0E32\u0E19\u0E0A\u0E49\u0E32 (TOR 11.2)';
+  document.getElementById('mwarr').textContent=isEN?'Crack warranty 2yr \u00B7 Water 5yr (TOR 12)':'\u0E23\u0E31\u0E1A\u0E1B\u0E23\u0E30\u0E01\u0E31\u0E19\u0E23\u0E2D\u0E22\u0E23\u0E49\u0E32\u0E27 2 \u0E1B\u0E35 \u00B7 \u0E19\u0E49\u0E33\u0E23\u0E31\u0E48\u0E27 5 \u0E1B\u0E35 (TOR 12)';
+}
+
+function buildMonths(){
+  var t=TXT[L];
+  var mg=document.getElementById('mgrid');
+  mg.innerHTML='';
+  t.ml.forEach(function(x){
+    var b=document.createElement('button');
+    b.className='mb';b.textContent=x.n;b.dataset.m=x.m;
+    updM(b,x.m);
+    b.onclick=(function(m){return function(){RM[m]=(RM[m]+1)%3;updM(b,m);recalc();};})(x.m);
+    mg.appendChild(b);
+  });
+}
+function updM(b,m){
+  b.className='mb';
+  if(RM[m]===1)b.classList.add('rain');
+  if(RM[m]===2)b.classList.add('heavy');
+}
+function buildFactors(){
+  var fw=document.getElementById('fwrap');
+  fw.innerHTML='';
+  FD.forEach(function(f){
+    var nm=L==='th'?f.th:f.en;
+    var ds=L==='th'?f.dth:f.den;
+    var d=document.createElement('div');d.className='fac';
+    d.innerHTML='<div class="fb"><div class="fn">'+nm+'</div><div class="fd">'+ds+'</div></div>'
+      +'<span class="fd2 '+f.lv.toLowerCase()+'">+'+f.days+'d</span>'
+      +'<label class="sw"><input type="checkbox"'+(FS[f.id]?' checked':'')
+      +'><span class="swt"></span></label>';
+    var cb=d.querySelector('input[type=checkbox]');
+    cb.setAttribute('data-fid',f.id);
+    cb.addEventListener('change',function(){toggleF(this.getAttribute('data-fid'),this.checked);});
+    fw.appendChild(d);
+  });
+}
+function toggleF(id,v){FS[id]=v;recalc();}
+function switchPlan(p,el){
+  PLAN=p;
+  document.querySelectorAll('.pt').forEach(function(t){t.classList.remove('on');});
+  el.classList.add('on');
+  recalc();
+}
+function showPay(){document.getElementById('pmodal').style.display='flex';}
+function closePay(){document.getElementById('pmodal').style.display='none';}
+
+function recalc(){
+  var t=TXT[L];
+  var si=+document.getElementById('r-start').value;
+  var crew=+document.getElementById('r-crew').value;
+  var rope=+document.getElementById('r-rope').value;
+  var gond=+document.getElementById('r-gond').value;
+  var rl=+document.getElementById('r-rl').value;
+  var sw=+document.getElementById('r-sw').value;
+  var sk=+document.getElementById('r-sk').value;
+  var pt=+document.getElementById('r-pt').value;
+  var ac=+document.getElementById('r-ac').value;
+
+  document.getElementById('v-start').textContent=t.starts[si];
+  document.getElementById('v-crew').textContent=crew+'%';
+  document.getElementById('v-rope').textContent=rope+(L==='th'?' \u0E04\u0E19':' pax');
+  document.getElementById('v-gond').textContent=gond+(L==='th'?' \u0E15\u0E31\u0E27':' units');
+  document.getElementById('v-rl').textContent=rl+'%';
+  document.getElementById('v-sw').textContent=sw+(L==='th'?' \u0E27\u0E31\u0E19/\u0E2A\u0E1B\u0E14.':' d/wk');
+  document.getElementById('v-sk').textContent=sk+(L==='th'?' \u0E27\u0E31\u0E19':' days');
+  document.getElementById('v-pt').textContent=pt+(L==='th'?' \u0E27\u0E31\u0E19':' days');
+  document.getElementById('v-ac').textContent=t.alo[ac];
+
+  var delay=0;
+  FD.forEach(function(f){if(FS[f.id])delay+=f.days;});
+  if(crew<100)delay+=Math.round((100-crew)/10*1.5);
+  if(rope<8)delay+=(8-rope)*2;
+  if(gond<4)delay+=(4-gond)*3;
+  if(sk>7)delay+=Math.round((sk-7)*.5);
+  if(pt>5)delay+=Math.round((pt-5)*.3);
+  if(ac>0)delay+=ac*5;
+
+  var bm=6+si;
+  var rw=0,hw=0;
+  for(var w=0;w<17;w++){
+    var m=((bm-1+Math.floor(w/4))%12)+1;
+    if(RM[m]===1)rw++;else if(RM[m]===2)hw++;
+  }
+  var rd=Math.round(rw*rl/100*5*0.4+hw*sw);
+  delay+=rd;
+
+  var extra=Math.max(0,Math.ceil(delay/5)-2);
+  var total=17+extra;
+  var ri=delay<=5?0:delay<=12?1:2;
+  var rcs=['ok','warn','danger'];
+  var rc=rcs[ri];
+
+  // end month \u2014 fix: direct calc from base month + total weeks
+  var endMonthIdx=(bm-1+Math.ceil(total/4))%12;
+  var eM=t.mo[endMonthIdx];
+  var eY=(bm+Math.ceil(total/4))>12?2027:2026;
+
+  document.getElementById('k1v').textContent=total+' '+t.wu;
+  document.getElementById('k1v').className='kv nv';
+  document.getElementById('k1s').textContent=t.starts[si].split(' ')[0]+' \u2192 '+eM+' '+eY;
+
+  var k2=document.getElementById('k2v');
+  k2.textContent=(rw+hw)+' '+t.wu;
+  k2.className='kv '+(rw+hw>8?'danger':'warn');
+  document.getElementById('k2s').textContent=hw+' '+t.hi.toLowerCase()+' \u00B7 '+rw+' '+t.mi.toLowerCase();
+
+  var k3=document.getElementById('k3v');
+  k3.textContent='~'+delay+' '+t.du;
+  k3.className='kv '+(delay>14?'danger':delay>7?'warn':'');
+
+  var k4=document.getElementById('k4v');
+  k4.textContent=t.risk[ri];k4.className='kv '+rc;
+  document.getElementById('k4s').textContent=t.rsub[ri];
+
+  var k5=document.getElementById('k5v');
+  k5.textContent=eM+' '+eY;k5.className='kv '+(ri>0?'warn':'ok');
+  document.getElementById('k5s').textContent=ri>0?t.ew:t.eok;
+
+  document.querySelectorAll('.kc').forEach(function(k,i){
+    k.className='kc '+['nv','warn',rc,rc,ri>0?'warn':'ok'][i];
+  });
+
+  renderGantt(si,t,bm);
+  renderImpact(delay,rw,hw,crew,rope,gond,ac,rd,t);
+}
+
+function getWR(w,bm){var m=((bm-1+Math.floor((w-1)/4))%12)+1;return RM[m]||0;}
+
+function renderGantt(si,t,bm){
+  // month row grouping
+  var grps=[],cur=null;
+  for(var w=1;w<=17;w++){
+    var mo=((bm-1+Math.floor((w-1)/4))%12)+1;
+    var mn=t.mo[mo-1];
+    if(!cur||cur.n!==mn){if(cur)grps.push(cur);cur={n:mn,c:1,r:RM[mo]||0};}
+    else cur.c++;
+  }
+  if(cur)grps.push(cur);
+
+  var tasks=getTasks(t);
+  var WL=L==='th'?'\u0E2A.':'W';
+  var h='<table class="gt"><thead><tr class=""><th class="th" colspan="2">'+(L==='th'?'\u0E23\u0E32\u0E22\u0E01\u0E32\u0E23\u0E07\u0E32\u0E19 / \u0E1C\u0E39\u0E49\u0E23\u0E31\u0E1A\u0E1C\u0E34\u0E14\u0E0A\u0E2D\u0E1A':'Activity / Owner')+'</th>';
+  for(var w=1;w<=17;w++){
+    var r=getWR(w,bm);
+    h+='<th class="'+(r===2?'hh':r===1?'rh':'')+'">'+WL+w+'</th>';
+  }
+  h+='</tr><tr><th class="th" colspan="2"></th>';
+  grps.forEach(function(g){
+    h+='<th class="'+(g.r===2?'hs':g.r===1?'rs':'')+'" colspan="'+g.c+'">'+g.n+(g.r===2?' \u2614\u2614':g.r===1?' \u2614':'')+'</th>';
+  });
+  h+='</tr></thead><tbody>';
+
+  tasks.forEach(function(tk){
+    if(tk.ph){
+      h+='<tr class="ph"><td colspan="'+(2+17)+'"><div class="phl"><span class="phd" style="background:'+tk.col+'"></span>'+tk.lb+'</div></td></tr>';
+      return;
+    }
+    var bdg=tk.bd?'<span class="tbdg '+(tk.bd==='r'?'r':tk.bd==='p'?'p':'g')+'">'+tk.bt+'</span>':'';
+    h+='<tr data-tt="'+(tk.tt||'')+'">';
+    h+='<td class="tn">'+tk.nm+(tk.ptg?'<span class="ptag">'+tk.ptg+'</span>':'')+'<br>'+bdg+'</td>';
+    h+='<td class="to">'+tk.ow+'</td>';
+    for(var w=1;w<=17;w++){
+      var r=getWR(w,bm);
+      var wc='wk'+(r===2?' hc':r===1?' rc':'');
+      var inR=(w>=tk.sw&&w<=tk.ew);
+      h+='<td class="'+wc+'">';
+      if(tk.ms&&w===tk.ew){
+        h+='<div class="mw"><div class="ms '+tk.mt+'"></div></div>';
+      } else if(inR){
+        var bc='bar '+tk.tp+(r===2?' hi':r===1?' ri':'');
+        h+='<div class="'+bc+'">'+(r>=1?'<div class="rstripe"></div>':'')+'</div>';
+      }
+      h+='</td>';
+    }
+    h+='</tr>';
+  });
+  h+='</tbody></table>';
+  document.getElementById('gi').innerHTML=h;
+
+  var tip=document.getElementById('tip');
+  document.querySelectorAll('.gt tbody tr[data-tt]').forEach(function(row){
+    var tt=row.getAttribute('data-tt');if(!tt)return;
+    row.addEventListener('mouseenter',function(){
+      var nm=row.querySelector('.tn')?row.querySelector('.tn').childNodes[0].textContent.trim():'';
+      tip.innerHTML='<div class="tit">'+nm+'</div>'+tt;tip.classList.add('on');
+    });
+    row.addEventListener('mousemove',function(e){
+      tip.style.left=Math.min(e.clientX+14,window.innerWidth-260)+'px';
+      tip.style.top=(e.clientY-80)+'px';
+    });
+    row.addEventListener('mouseleave',function(){tip.classList.remove('on');});
+  });
+}
+
+function getTasks(t){
+  var p=PLAN;
+  var base=[
+    {ph:true,lb:t.p0,col:'#5B21B6'},
+    {nm:L==='th'?'\u0E2A\u0E33\u0E23\u0E27\u0E08 Drone + Spider man':'Drone + Spider-man Survey',ow:'GreenSun',sw:1,ew:2,tp:'bS',bd:'p',bt:t.bS,
+     tt:'TOR 5: '+(L==='th'?'\u0E42\u0E23\u0E22\u0E15\u0E31\u0E27+\u0E1A\u0E34\u0E19\u0E42\u0E14\u0E23\u0E19 \u0E16\u0E48\u0E32\u0E22\u0E23\u0E39\u0E1B\u0E17\u0E38\u0E01\u0E08\u0E38\u0E14\u0E40\u0E2A\u0E35\u0E22\u0E2B\u0E32\u0E22 \u0E23\u0E32\u0E22\u0E07\u0E32\u0E19\u0E20\u0E32\u0E22\u0E43\u0E19 10 \u0E27\u0E31\u0E19':'Rope-down + drone survey, photo all damage, report within 10 days')},
+    {nm:L==='th'?'\u0E15\u0E31\u0E49\u0E07\u0E41\u0E04\u0E21\u0E1B\u0E4C \u00B7 PPE \u00B7 \u0E2D\u0E1A\u0E23\u0E21\u0E04\u0E27\u0E32\u0E21\u0E1B\u0E25\u0E2D\u0E14\u0E20\u0E31\u0E22':'Site Setup \u00B7 PPE \u00B7 Safety Training',ow:'Teeranai',sw:1,ew:1,tp:'bO',bd:'g',bt:t.bO,
+     tt:'TOR 9: '+(L==='th'?'\u0E2D\u0E1A\u0E23\u0E21\u0E01\u0E48\u0E2D\u0E19\u0E17\u0E38\u0E01\u0E04\u0E19 \u00B7 \u0E01\u0E31\u0E49\u0E19\u0E1E\u0E37\u0E49\u0E19\u0E17\u0E35\u0E48\u0E17\u0E33\u0E07\u0E32\u0E19 \u00B7 \u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19\u0E02\u0E2D\u0E07\u0E15\u0E01\u0E2B\u0E25\u0E48\u0E19':'Safety briefing all crew \u00B7 barricade \u00B7 fall protection')},
+    {nm:L==='th'?'\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E01\u0E23\u0E30\u0E40\u0E0A\u0E49\u0E32 Gondola':'Gondola Installation',ow:'Teeranai',sw:1,ew:2,tp:'bO',bd:'g',bt:t.bG,
+     tt:L==='th'?'\u0E01\u0E23\u0E30\u0E40\u0E0A\u0E49\u0E32 6m\u00D72 + 4m\u00D72 \u00B7 \u0E15\u0E49\u0E2D\u0E07\u0E21\u0E35\u0E43\u0E1A\u0E2D\u0E19\u0E38\u0E0D\u0E32\u0E15\u0E01\u0E48\u0E2D\u0E19\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19':'6m\u00D72 + 4m\u00D72 gondola units \u00B7 permit required before operation'},
+    {nm:L==='th'?'Lock Scope \u2014 \u0E25\u0E39\u0E01\u0E04\u0E49\u0E32\u0E40\u0E0B\u0E47\u0E19 Damage List':'Scope Lock \u2014 Client signs Damage List',ow:'Weerapong',sw:2,ew:2,tp:'bO',ms:true,mt:'hold',ptg:'M0',bd:'g',bt:t.bO,
+     tt:L==='th'?'CRITICAL: sign-off \u0E01\u0E48\u0E2D\u0E19 NTP \u00B7 \u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19 scope creep \u00B7 VO trigger \u0E16\u0E49\u0E32\u0E1E\u0E1A\u0E40\u0E1E\u0E34\u0E48\u0E21':'CRITICAL: sign-off before NTP \u00B7 prevents scope creep \u00B7 VO for extra damage'},
+    {nm:L==='th'?'\u0E2A\u0E31\u0E48\u0E07\u0E27\u0E31\u0E2A\u0E14\u0E38 Batch 1 \u2192 \u0E40\u0E02\u0E49\u0E32\u0E44\u0E0B\u0E15\u0E4C':'Material Batch 1 \u2192 Site',ow:'Kavita',sw:1,ew:2,tp:'bO',bd:'g',bt:t.bO,
+     tt:'Sikaflex-740/730, Sika MonoTop-412, Backer Rod, TOA EXTRAWET PRIMER, Sikalastic-501'}
+  ];
+  var ph3tasks=[
+    {ph:true,lb:t.p3,col:'#6B7280'},
+    {nm:L==='th'?'\u0E17\u0E32\u0E2A\u0E35\u0E25\u0E32\u0E19\u0E08\u0E2D\u0E14\u0E23\u0E16 6 \u0E0A\u0E31\u0E49\u0E19 (TOR 6.3)':'Car Park Painting 6 Floors (TOR 6.3)',ow:'Crew A+B',sw:11,ew:14,tp:'bO',bd:'g',bt:t.bO,
+     tt:'TOR 6.3: '+(L==='th'?'\u0E25\u0E32\u0E19\u0E08\u0E2D\u0E14\u0E23\u0E16 6 \u0E0A\u0E31\u0E49\u0E19 \u00B7 TOA Red Oxide Primer + GLIPTON ENAMEL':'6 car park floors \u00B7 Red Oxide Primer + GLIPTON ENAMEL')},
+    {nm:L==='th'?'\u0E25\u0E49\u0E32\u0E07\u0E01\u0E23\u0E30\u0E08\u0E01 + \u0E22\u0E34\u0E07 Silicone \u0E43\u0E2B\u0E21\u0E48 (TOR 8)':'Glass Cleaning + Re-seal (TOR 8)',ow:'Rope 8',sw:13,ew:15,tp:'bS',bd:'p',bt:t.bS,
+     tt:'TOR 8: '+(L==='th'?'Water jet 100-150 Bar + \u0E19\u0E49\u0E33\u0E22\u0E32 + Baking Soda + \u0E44\u0E21\u0E42\u0E04\u0E23\u0E44\u0E1F\u0E40\u0E1A\u0E2D\u0E23\u0E4C':'Water jet 100-150 Bar + cleaner + microfiber wipe')},
+    {nm:L==='th'?'\u0E23\u0E37\u0E49\u0E2D\u0E01\u0E23\u0E30\u0E40\u0E0A\u0E49\u0E32 + \u0E04\u0E37\u0E19\u0E1E\u0E37\u0E49\u0E19\u0E17\u0E35\u0E48':'Gondola Demob + Site Restore',ow:'Teeranai',sw:14,ew:15,tp:'bC',
+     tt:'TOR 9.4\u20139.5: '+(L==='th'?'\u0E23\u0E37\u0E49\u0E2D Gondola \u0E17\u0E31\u0E49\u0E07 4 \u0E15\u0E31\u0E27 \u00B7 \u0E17\u0E33\u0E04\u0E27\u0E32\u0E21\u0E2A\u0E30\u0E2D\u0E32\u0E14 \u00B7 5S Final':'Remove all gondola \u00B7 clean up \u00B7 5S final')},
+    {nm:L==='th'?'Punch List + \u0E41\u0E01\u0E49\u0E44\u0E02\u0E02\u0E49\u0E2D\u0E1A\u0E01\u0E1E\u0E23\u0E48\u0E2D\u0E07':'Punch List + Defect Fix',ow:'GreenSun',sw:14,ew:16,tp:'bC',
+     tt:'TOR 14: '+(L==='th'?'\u0E15\u0E23\u0E27\u0E08\u0E04\u0E27\u0E32\u0E21\u0E40\u0E23\u0E35\u0E22\u0E1A\u0E23\u0E49\u0E2D\u0E22\u0E04\u0E23\u0E1A\u0E16\u0E49\u0E27\u0E19 \u00B7 \u0E41\u0E01\u0E49\u0E44\u0E02\u0E17\u0E38\u0E01\u0E08\u0E38\u0E14\u0E01\u0E48\u0E2D\u0E19 Certificate':'Inspect completeness \u00B7 fix all defects before certificate')},
+    {nm:L==='th'?'\u0E2A\u0E48\u0E07\u0E21\u0E2D\u0E1A + \u0E43\u0E1A\u0E23\u0E31\u0E1A\u0E1B\u0E23\u0E30\u0E01\u0E31\u0E19 5 \u0E1B\u0E35':'Final Handover + 5yr Warranty',ow:'Weerapong',sw:17,ew:17,tp:'bC',ms:true,mt:'cert',ptg:L==='th'?'\u0E07\u0E27\u0E14 4':'P4',
+     tt:'TOR 15: '+(L==='th'?'\u0E04\u0E39\u0E48\u0E21\u0E37\u0E2D + \u0E40\u0E2D\u0E01\u0E2A\u0E32\u0E23\u0E23\u0E31\u0E1A\u0E1B\u0E23\u0E30\u0E01\u0E31\u0E19 + As-Built \u00B7 \u0E07\u0E27\u0E14 4 (\u0E3F3,120,000)':'Manual + warranty docs + As-Built \u00B7 P4 (\u0E3F3,120,000)')}
+  ];
+  if(p==='A'){
+    var a1=[
+      {ph:true,lb:t.p1A,col:'#185FA5'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 F31\u2013F16 \u00B7 Rope Access \u0E0B\u0E48\u0E2D\u0E21\u0E23\u0E2D\u0E22\u0E23\u0E49\u0E32\u0E27':'Bldg A \u00B7 F31\u2013F16 \u00B7 Rope Crack Repair',ow:'Rope 8',sw:2,ew:7,tp:'bR',bd:'r',bt:t.bR,
+       tt:'TOP-DOWN: '+(L==='th'?'Rope team \u0E40\u0E23\u0E34\u0E48\u0E21\u0E08\u0E32\u0E01\u0E22\u0E2D\u0E14 \u00B7 \u0E1B\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E19\u0E19\u0E49\u0E33\u0E1D\u0E19\u0E17\u0E33\u0E25\u0E32\u0E22\u0E07\u0E32\u0E19\u0E0A\u0E31\u0E49\u0E19\u0E25\u0E48\u0E32\u0E07 \u00B7 TOR 4.1.1.1':'Rope from top down \u00B7 prevents rain damaging lower completed work \u00B7 TOR 4.1.1.1')},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 F15\u2013G \u00B7 Gondola + PU Sealant':'Bldg A \u00B7 F15\u2013G \u00B7 Gondola + PU Sealant',ow:'Crew A',sw:5,ew:9,tp:'bA',bd:'g',bt:t.bG,
+       tt:L==='th'?'Gondola 6m+4m \u00B7 \u0E23\u0E31\u0E1A\u0E0A\u0E48\u0E27\u0E07 Rope team \u00B7 Sikaflex-740 \u00B7 Backer Rod 13mm/25mm':'Gondola 6m+4m follows Rope team \u00B7 Sikaflex-740 \u00B7 Backer Rod 13mm/25mm'},
+      {nm:L==='th'?'Hold Point H1 \u2014 \u0E15\u0E23\u0E27\u0E08\u0E23\u0E31\u0E1A \u0E2D\u0E32\u0E04\u0E32\u0E23 A':'Hold Point H1 \u2014 Bldg A Inspection',ow:'GreenSun',sw:9,ew:9,tp:'bA',ms:true,mt:'pay',ptg:L==='th'?'\u0E07\u0E27\u0E14 2':'P2',
+       tt:L==='th'?'\u0E25\u0E39\u0E01\u0E04\u0E49\u0E32 + GreenSun \u0E15\u0E23\u0E27\u0E08\u0E23\u0E48\u0E27\u0E21 \u00B7 \u0E1C\u0E48\u0E32\u0E19 = \u0E40\u0E1A\u0E34\u0E01\u0E07\u0E27\u0E14 2 (\u0E3F4,680,000) \u00B7 TOR 14':'Client + GreenSun inspect \u00B7 Pass = draw P2 (\u0E3F4,680,000) \u00B7 TOR 14'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 \u0E17\u0E32\u0E2A\u0E35 Primer + \u0E01\u0E31\u0E19\u0E0B\u0E36\u0E21 + 2 \u0E0A\u0E31\u0E49\u0E19':'Bldg A \u00B7 Primer + WP + 2-coat Paint',ow:'Crew A',sw:9,ew:11,tp:'bA',bd:'g',bt:t.bG,
+       tt:'TOR 6+7: TOA EXTRAWET PRIMER \u2192 Sikalastic-501 \u2192 TOA SUPERSHIELD \u00D72 \u00B7 '+(L==='th'?'RH<85% \u0E01\u0E48\u0E2D\u0E19\u0E17\u0E32\u0E2A\u0E35\u0E17\u0E38\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07':'RH<85% required before each coat')}
+    ];
+    var a2=[
+      {ph:true,lb:t.p2A,col:'#0F6E56'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 F31\u2013F16 \u00B7 Rope Access \u0E0B\u0E48\u0E2D\u0E21\u0E23\u0E2D\u0E22\u0E23\u0E49\u0E32\u0E27':'Bldg B \u00B7 F31\u2013F16 \u00B7 Rope Crack Repair',ow:'Rope 8',sw:5,ew:10,tp:'bR',bd:'r',bt:t.bR,
+       tt:'TOP-DOWN: '+(L==='th'?'Shared rope team \u00B7 \u0E1B\u0E23\u0E30\u0E2A\u0E32\u0E19\u0E01\u0E31\u0E1A Bldg A':'Shared rope team \u00B7 coordinate with Bldg A')},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 F15\u2013G \u00B7 Gondola + PU Sealant':'Bldg B \u00B7 F15\u2013G \u00B7 Gondola + PU Sealant',ow:'Crew B',sw:8,ew:12,tp:'bB',bd:'g',bt:t.bG,
+       tt:L==='th'?'Gondola \u0E15\u0E32\u0E21 Rope team \u00B7 Backer Rod + Dowsil 1200 + Sikaflex-740':'Gondola follows Rope team \u00B7 Backer Rod + Dowsil 1200 + Sikaflex-740'},
+      {nm:L==='th'?'Hold Point H2 \u2014 \u0E15\u0E23\u0E27\u0E08\u0E23\u0E31\u0E1A \u0E2D\u0E32\u0E04\u0E32\u0E23 B':'Hold Point H2 \u2014 Bldg B Inspection',ow:'GreenSun',sw:12,ew:12,tp:'bB',ms:true,mt:'pay',ptg:L==='th'?'\u0E07\u0E27\u0E14 3':'P3',
+       tt:L==='th'?'\u0E25\u0E39\u0E01\u0E04\u0E49\u0E32 + GreenSun \u00B7 \u0E1C\u0E48\u0E32\u0E19 = \u0E40\u0E1A\u0E34\u0E01\u0E07\u0E27\u0E14 3 (\u0E3F3,900,000) \u00B7 TOR 14':'Client + GreenSun \u00B7 Pass = draw P3 (\u0E3F3,900,000) \u00B7 TOR 14'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 \u0E17\u0E32\u0E2A\u0E35 Primer + \u0E01\u0E31\u0E19\u0E0B\u0E36\u0E21 + 2 \u0E0A\u0E31\u0E49\u0E19':'Bldg B \u00B7 Primer + WP + 2-coat Paint',ow:'Crew B',sw:12,ew:14,tp:'bB',bd:'g',bt:t.bG,
+       tt:'TOR 7: TOA SUPERSHIELD TITANIUM SHEEN \u00B7 '+(L==='th'?'\u0E15.\u0E04. = \u0E0A\u0E48\u0E27\u0E07\u0E14\u0E35\u0E17\u0E35\u0E48\u0E2A\u0E38\u0E14\u0E2A\u0E33\u0E2B\u0E23\u0E31\u0E1A\u0E17\u0E32\u0E2A\u0E35':'Oct dry season = ideal curing')}
+    ];
+    return base.concat(a1).concat(a2).concat(ph3tasks);
+  }
+  if(p==='B'){
+    var b1=[
+      {ph:true,lb:t.p1B,col:'#B45309'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 G\u2013F15 \u00B7 Gondola \u0E0B\u0E48\u0E2D\u0E21\u0E23\u0E2D\u0E22\u0E23\u0E49\u0E32\u0E27':'Bldg A \u00B7 G\u2013F15 \u00B7 Gondola Crack Repair',ow:'Crew A',sw:2,ew:7,tp:'bA',bd:'g',bt:t.bG,
+       tt:'\u26A0 '+(L==='th'?'\u0E41\u0E1C\u0E19 B: \u0E25\u0E48\u0E32\u0E07\u0E02\u0E36\u0E49\u0E19\u0E1A\u0E19 \u00B7 \u0E04\u0E27\u0E32\u0E21\u0E40\u0E2A\u0E35\u0E48\u0E22\u0E07: \u0E1D\u0E19\u0E08\u0E32\u0E01\u0E0A\u0E31\u0E49\u0E19\u0E1A\u0E19\u0E17\u0E33\u0E25\u0E32\u0E22\u0E07\u0E32\u0E19\u0E0A\u0E31\u0E49\u0E19\u0E25\u0E48\u0E32\u0E07':'Plan B Bottom-Up \u00B7 RISK: rain from upper floors damages completed lower work')},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 F16\u2013F31 \u00B7 Rope Access':'Bldg A \u00B7 F16\u2013F31 \u00B7 Rope Access',ow:'Rope 8',sw:6,ew:10,tp:'bR',bd:'r',bt:t.bR,
+       tt:L==='th'?'Rope team \u0E17\u0E33\u0E0A\u0E31\u0E49\u0E19\u0E1A\u0E19\u0E17\u0E35\u0E2B\u0E25\u0E31\u0E07 \u00B7 \u0E19\u0E49\u0E33\u0E1D\u0E19\u0E2D\u0E32\u0E08\u0E40\u0E2A\u0E35\u0E22\u0E2B\u0E32\u0E22\u0E07\u0E32\u0E19\u0E0A\u0E31\u0E49\u0E19\u0E25\u0E48\u0E32\u0E07\u0E17\u0E35\u0E48\u0E17\u0E33\u0E41\u0E25\u0E49\u0E27':'Rope does upper after lower \u00B7 rain-damage risk to completed lower work'},
+      {nm:L==='th'?'Hold Point H1 \u2014 \u0E2D\u0E32\u0E04\u0E32\u0E23 A':'Hold Point H1 \u2014 Bldg A',ow:'GreenSun',sw:10,ew:10,tp:'bA',ms:true,mt:'pay',ptg:L==='th'?'\u0E07\u0E27\u0E14 2':'P2',tt:L==='th'?'\u0E15\u0E23\u0E27\u0E08\u0E23\u0E31\u0E1A Bldg A \u00B7 \u0E40\u0E1A\u0E34\u0E01\u0E07\u0E27\u0E14 2':'Bldg A inspection \u00B7 Draw P2'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 A \u00B7 \u0E17\u0E32\u0E2A\u0E35':'Bldg A \u00B7 Painting',ow:'Crew A',sw:10,ew:12,tp:'bA',bd:'g',bt:t.bG,tt:'TOA SUPERSHIELD \u00D72'}
+    ];
+    var b2=[
+      {ph:true,lb:t.p2B,col:'#B45309'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 G\u2013F15 \u00B7 Gondola':'Bldg B \u00B7 G\u2013F15 \u00B7 Gondola',ow:'Crew B',sw:5,ew:10,tp:'bB',bd:'g',bt:t.bG,tt:L==='th'?'\u0E41\u0E1C\u0E19 B \u0E2D\u0E32\u0E04\u0E32\u0E23 B':'Plan B Bldg B'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 F16\u2013F31 \u00B7 Rope':'Bldg B \u00B7 F16\u2013F31 \u00B7 Rope',ow:'Rope 8',sw:9,ew:13,tp:'bR',bd:'r',bt:t.bR,tt:'Rope Bldg B upper floors'},
+      {nm:L==='th'?'Hold Point H2 \u2014 \u0E2D\u0E32\u0E04\u0E32\u0E23 B':'Hold Point H2 \u2014 Bldg B',ow:'GreenSun',sw:13,ew:13,tp:'bB',ms:true,mt:'pay',ptg:L==='th'?'\u0E07\u0E27\u0E14 3':'P3',tt:L==='th'?'\u0E15\u0E23\u0E27\u0E08\u0E23\u0E31\u0E1A Bldg B \u00B7 \u0E40\u0E1A\u0E34\u0E01\u0E07\u0E27\u0E14 3':'Bldg B inspection \u00B7 Draw P3'},
+      {nm:L==='th'?'\u0E2D\u0E32\u0E04\u0E32\u0E23 B \u00B7 \u0E17\u0E32\u0E2A\u0E35':'Bldg B \u00B7 Painting',ow:'Crew B',sw:13,ew:15,tp:'bB',bd:'g',bt:t.bG,tt:'TOA SUPERSHIELD \u00D72'}
+    ];
+    return base.concat(b1).concat(b2).concat(ph3tasks);
+  }
+  // Plan C
+  var c1=[
+    {ph:true,lb:t.p1C,col:'#0891B2'},
+    {nm:L==='th'?'\u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23 \u00B7 F31\u2013F16 \u00B7 Rope (2 \u0E17\u0E35\u0E21)':'Both Bldgs \u00B7 F31\u2013F16 \u00B7 Rope (2 Teams)',ow:'Rope 16',sw:2,ew:8,tp:'bR',bd:'r',bt:t.bR,
+     tt:'\u26A0 '+(L==='th'?'\u0E41\u0E1C\u0E19 C \u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23 Rope 16 \u0E04\u0E19 \u00B7 \u0E15\u0E49\u0E19\u0E17\u0E38\u0E19\u0E2A\u0E39\u0E07\u0E01\u0E27\u0E48\u0E32 \u00B7 \u0E40\u0E23\u0E47\u0E27\u0E01\u0E27\u0E48\u0E32 30%':'Plan C needs 16 rope workers \u00B7 higher cost \u00B7 30% faster')},
+    {nm:L==='th'?'\u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23 \u00B7 F15\u2013G \u00B7 Gondola 4 \u0E15\u0E31\u0E27\u0E1E\u0E23\u0E49\u0E2D\u0E21\u0E01\u0E31\u0E19':'Both Bldgs \u00B7 F15\u2013G \u00B7 All 4 Gondola',ow:'Crew A+B',sw:5,ew:11,tp:'bO',bd:'g',bt:t.bO,tt:'All 4 gondola simultaneously'},
+    {nm:L==='th'?'Hold Point H1+H2 \u2014 \u0E15\u0E23\u0E27\u0E08\u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23':'Hold Point H1+H2 \u2014 Both Buildings',ow:'GreenSun',sw:11,ew:11,tp:'bO',ms:true,mt:'pay',ptg:L==='th'?'\u0E07\u0E27\u0E14 2+3':'P2+P3',tt:L==='th'?'\u0E15\u0E23\u0E27\u0E08\u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23\u0E1E\u0E23\u0E49\u0E2D\u0E21\u0E01\u0E31\u0E19':'Inspect both buildings simultaneously'},
+    {nm:L==='th'?'\u0E17\u0E31\u0E49\u0E07 2 \u0E2D\u0E32\u0E04\u0E32\u0E23 \u00B7 \u0E17\u0E32\u0E2A\u0E35\u0E1E\u0E23\u0E49\u0E2D\u0E21\u0E01\u0E31\u0E19':'Both Bldgs \u00B7 Painting Simultaneously',ow:'Crew A+B',sw:11,ew:13,tp:'bO',bd:'g',bt:t.bO,tt:'TOA SUPERSHIELD \u00D72 both buildings'}
+  ];
+  var ph3c=JSON.parse(JSON.stringify(ph3tasks));
+  ph3c.forEach(function(tk){if(!tk.ph&&tk.sw>=11){tk.sw-=2;tk.ew-=2;}});
+  return base.concat(c1).concat(ph3c);
+}
+
+function renderImpact(delay,rw,hw,crew,rope,gond,ac,rd,t){
+  var cards=[];
+  var ri=delay<=5?0:delay<=12?1:2;
+  var lvls=['l','m','h'];
+  var lbls=[t.lo,t.mi,t.hi];
+
+  cards.push({n:L==='th'?'\u0E24\u0E14\u0E39\u0E1D\u0E19 (\u0E21\u0E23\u0E2A\u0E38\u0E21)':'Monsoon Season',
+    lv:hw>4?'h':rw>6?'m':'l',
+    b:(rw+hw)+' '+t.wu+' \u00B7 ~'+rd+' '+(L==='th'?'\u0E27\u0E31\u0E19\u0E2A\u0E39\u0E0D\u0E40\u0E2A\u0E35\u0E22':'days lost')+' \u00B7 Rope + '+(L==='th'?'\u0E17\u0E32\u0E2A\u0E35\u0E01\u0E23\u0E30\u0E17\u0E1A\u0E21\u0E32\u0E01':'painting most affected'),
+    p:Math.min(100,Math.round(rd/20*100)),
+    c:hw>4?'var(--dng)':rw>6?'var(--amb)':'var(--grn)'});
+
+  if(crew<100){var dd=Math.round((100-crew)/10*1.5);
+    cards.push({n:L==='th'?'\u0E0A\u0E48\u0E32\u0E07\u0E02\u0E32\u0E14\u0E41\u0E04\u0E25\u0E19':'Crew Shortage',lv:crew<70?'h':'m',
+      b:crew+'% '+(L==='th'?'\u0E17\u0E35\u0E48\u0E21\u0E35\u0E08\u0E23\u0E34\u0E07':'available')+' \u00B7 +'+dd+' '+t.du,
+      p:100-crew,c:crew<70?'var(--dng)':'var(--amb)'});}
+  if(rope<8){
+    cards.push({n:L==='th'?'Rope team \u0E44\u0E21\u0E48\u0E04\u0E23\u0E1A':'Rope Team Short',lv:'m',
+      b:rope+(L==='th'?' \u0E04\u0E19':' pax')+' \u00B7 +'+(8-rope)*2+' '+t.du,
+      p:(8-rope)*25,c:'var(--amb)'});}
+  if(gond<4){
+    cards.push({n:L==='th'?'\u0E01\u0E23\u0E30\u0E40\u0E0A\u0E49\u0E32\u0E44\u0E21\u0E48\u0E04\u0E23\u0E1A':'Gondola Short',lv:'h',
+      b:gond+(L==='th'?' \u0E15\u0E31\u0E27':' units')+' \u00B7 +'+(4-gond)*3+' '+t.du,
+      p:(4-gond)*33,c:'var(--dng)'});}
+  if(ac>0){
+    cards.push({n:L==='th'?'\u0E02\u0E49\u0E2D\u0E08\u0E33\u0E01\u0E31\u0E14\u0E40\u0E02\u0E49\u0E32\u0E1E\u0E37\u0E49\u0E19\u0E17\u0E35\u0E48':'Access Restriction',lv:ac>1?'h':'m',
+      b:'TOR 10.4 \u00B7 +'+ac*5+' '+t.du,
+      p:ac*35,c:ac>1?'var(--dng)':'var(--amb)'});}
+  FD.forEach(function(f){
+    if(FS[f.id]){
+      cards.push({n:L==='th'?f.th:f.en,lv:f.lv.toLowerCase(),
+        b:(L==='th'?f.dth:f.den)+' \u00B7 +'+f.days+'d',
+        p:Math.min(100,f.days*10),
+        c:f.lv==='H'?'var(--dng)':f.lv==='M'?'var(--amb)':'var(--grn)'});}});
+
+  var totb=delay+(delay<=5?(' '+t.du+' \u00B7 '+(L==='th'?'Buffer \u0E22\u0E31\u0E07\u0E40\u0E1E\u0E35\u0E22\u0E07\u0E1E\u0E2D':'Buffer intact')):delay<=12?(' '+t.du+' \u00B7 '+(L==='th'?'\u0E15\u0E34\u0E14\u0E15\u0E32\u0E21\u0E23\u0E32\u0E22\u0E2A\u0E31\u0E1B\u0E14\u0E32\u0E2B\u0E4C':'Monitor weekly')):(' '+t.du+' \u00B7 '+(L==='th'?'\u0E02\u0E2D\u0E02\u0E22\u0E32\u0E22\u0E2A\u0E31\u0E0D\u0E0D\u0E32\u0E17\u0E31\u0E19\u0E17\u0E35':'Request extension NOW')));
+  cards.push({n:L==='th'?'\u0E1C\u0E25\u0E01\u0E23\u0E30\u0E17\u0E1A\u0E23\u0E27\u0E21':'Total Impact',lv:lvls[ri],b:totb,
+    p:Math.min(100,delay*4),c:['var(--grn)','var(--amb)','var(--dng)'][ri]});
+
+  document.getElementById('impg').innerHTML=cards.map(function(card){
+    var bi=card.lv==='h'?2:card.lv==='m'?1:0;
+    return '<div class="ic '+card.lv+'">'
+      +'<div class="ict"><div class="icn">'+card.n+'</div><span class="icb '+card.lv+'">'+lbls[bi]+'</span></div>'
+      +'<div class="ico">'+card.b+'</div>'
+      +'<div class="icbar"><div class="icfill" style="width:'+card.p+'%;background:'+card.c+'"></div></div>'
+      +'</div>';
+  }).join('');
+}
+
+function resetAll(){
+  ['r-start','r-crew','r-rope','r-gond','r-rl','r-sw','r-sk','r-pt','r-ac']
+    .forEach(function(id,i){document.getElementById(id).value=[0,100,8,4,18,2,7,5,0][i];});
+  RM={6:1,7:1,8:2,9:2,10:1,11:0};
+  FD.forEach(function(f){FS[f.id]=f.on;});
+  buildMonths();
+  document.querySelectorAll('#fwrap input[type=checkbox]').forEach(function(cb,i){cb.checked=FD[i].on;});
+  PLAN='A';
+  document.querySelectorAll('.pt').forEach(function(tb,i){tb.classList.toggle('on',i===0);});
+  recalc();
+}
+
+buildMonths();
+buildFactors();
+recalc();
+</script>
+</body>
+</html>
